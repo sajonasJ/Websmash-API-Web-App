@@ -1,0 +1,25 @@
+@media (max-width: 767px) {
+  .main {
+    background-color: aquamarine;
+    flex-direction: column;
+  }
+
+  nav{
+    flex-direction: row;
+    position: sticky;
+    top:0;
+    justify-content: space-evenly;
+  }
+  .cat{
+    padding: 10px;
+  }
+
+  h2{
+   align-self:flex-start ;
+    
+  }
+  section{
+    flex-direction: column;
+    align-items: center;
+  }
+}
