@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week1 Task5</title>
+    <title>Week2 Task3</title>
 
     <link
       rel="icon"
@@ -23,10 +23,12 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <!-- top -->
     <header>
       <h1>My Outstanding Photo Album</h1>
       <button id="btn" type="button" class="log">Login</button>
     </header>
+    <!-- body -->
     <div class="main">
       <aside>
         <nav>
@@ -37,12 +39,13 @@
           <a class="cat" href="">Amusements</a>
           <a class="cat" href="">Parks</a>
           <div class="serc">
-            <input type="text" placeholder="Search..." />
-            <button id="serc">Enter</button>
+            <input type="text" id="searchNum" placeholder="Search..." />
+            <button onclick="search()" id="serc">Enter</button>
           </div>
         </nav>
       </aside>
-      <section>
+      <!-- actual body -->
+      <section id="thumbnails">
         <figure class="scenery" id="fig1">
           <img src="../photos/cityview.JPG" alt="view overlooking bridge" />
           <figcaption>Bridge View</figcaption>
@@ -65,6 +68,7 @@
         </figure>
       </section>
     </div>
+    <!-- foot -->
     <footer>
       <h3>by @Jonas Sajonas</h3>
     </footer>
