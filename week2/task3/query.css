@@ -4,12 +4,12 @@
     flex-direction: column;
   }
 
-  nav {
+  #nav-container {
     flex-direction: row;
     display: flex;
     /* align-items: baseline; */
     gap: 1px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex: 1;
     flex-basis: auto;
   }
