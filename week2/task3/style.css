@@ -86,12 +86,12 @@ aside {
   background-color: lightgray;
   transition-duration: 0.3s;
 }
-a:hover {
+.cat:hover {
   cursor: pointer;
   transform: scale(1.2);
   background-color: rgb(172, 47, 47);
 }
-a:active {
+.cat:active {
   transform: translateY(10px);
   transform: scale(1.2);
 }
