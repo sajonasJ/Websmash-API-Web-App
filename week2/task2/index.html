@@ -4,12 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task3</title>
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../images/apple-touch-icon.png"
-    />
+    <title>Task2</title>
+
     <link
       rel="icon"
       type="image/png"
@@ -22,27 +18,34 @@
       sizes="16x16"
       href="../images/favicon-16x16.png"
     />
-
-    <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="query.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
+    <!-- top -->
     <header>
       <h1>My Outstanding Photo Album</h1>
+      <button id="btn" type="button" class="log">Login</button>
     </header>
+    <!-- body -->
     <div class="main">
       <aside>
         <nav>
-          <h2>Categories</h2>
-          <a class="cat" href="http://">Cities</a>
-          <a class="cat" href="http://">Beaches</a>
-          <a class="cat" href="http://">Downtown</a>
-          <a class="cat" href="http://">Amusements</a>
-          <a class="cat" href="http://">Parks</a>
+          <h2>Categories:</h2>
+          <a class="cat" href="">Cities</a>
+          <a class="cat" href="">Beaches</a>
+          <a class="cat" href="">Downtown</a>
+          <a class="cat" href="">Amusements</a>
+          <a class="cat" href="">Parks</a>
+          <div class="serc">
+            <input type="text" id="searchNum" placeholder="Search..." />
+            <button onclick="search()" id="serc">Enter</button>
+          </div>
         </nav>
       </aside>
-      <section>
+      <!-- actual body -->
+      <section id="thumbnails">
         <figure class="scenery" id="fig1">
           <img src="../photos/cityview.JPG" alt="view overlooking bridge" />
           <figcaption>Bridge View</figcaption>
@@ -65,6 +68,7 @@
         </figure>
       </section>
     </div>
+    <!-- foot -->
     <footer>
       <h3>by @Jonas Sajonas</h3>
     </footer>
