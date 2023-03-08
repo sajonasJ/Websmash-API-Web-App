@@ -1,0 +1,44 @@
+@media (max-width: 767px) {
+  .main {
+    /* background-color: aquamarine; */
+    flex-direction: column;
+  }
+
+  #nav-container {
+    flex-direction: row;
+    display: flex;
+    /* align-items: baseline; */
+    gap: 1px;
+    flex-wrap: nowrap;
+    flex: 1;
+    flex-basis: auto;
+  }
+  .cat {
+    padding: 10px;
+  }
+
+  .serc {
+    max-width: 140px;
+    margin-top: 0;
+    align-self: baseline;
+  }
+  input {
+    max-width: 108px;
+    margin-top: 0;
+  }
+  #serc {
+    max-width: 100px;
+  }
+
+  section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    align-self: baseline;
+  }
+  button {
+    align-self: baseline;
+  }
+}

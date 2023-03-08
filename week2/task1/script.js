@@ -30,7 +30,7 @@ document.getElementById("serc").onclick = () => {
     let searchNum = document.getElementById("searchNum").value;
 
     document.getElementById("thumbnails").innerHTML = "";
-    for (let i = 0; i < searchNum; i++) {
+    for (let i = 0; i < searchNum && i <= 14 ; i++) {
         document.getElementById("thumbnails").innerHTML +=
             `<figure>${figs}</figure>`;
     }
