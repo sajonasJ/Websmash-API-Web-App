@@ -4,14 +4,18 @@
     flex-direction: column;
   }
 
+  aside{
+    max-width: 100%;
+    display: flex;
+  }
   #nav-container {
     flex-direction: row;
     display: flex;
     /* align-items: baseline; */
     gap: 1px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex: 1;
-    flex-basis: auto;
+    max-width: fit-content;
   }
   .cat {
     padding: 10px;
@@ -21,6 +25,7 @@
     max-width: 140px;
     margin-top: 0;
     align-self: baseline;
+    padding: 10px 0 10px 0;
   }
   input {
     max-width: 108px;
