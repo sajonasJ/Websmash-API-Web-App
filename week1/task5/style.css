@@ -43,7 +43,7 @@ h1 {
 }
 
 /* Section */
-.scenery {
+figure {
   border: solid 1px black;
   width: fit-content;
   padding: 10px 30px 10px 30px;
@@ -77,8 +77,8 @@ aside {
 }
 .cat {
   display: flex;
-  padding: 0px 10px 0px 15px;
-  width: auto;
+  padding: 0 0 0 15px;
+  /* max-width: 260px; */
   text-decoration: none;
   border: solid 1px black;
   border-radius: 5px;
@@ -86,12 +86,12 @@ aside {
   background-color: lightgray;
   transition-duration: 0.3s;
 }
-a:hover {
+.cat:hover {
   cursor: pointer;
   transform: scale(1.2);
   background-color: rgb(172, 47, 47);
 }
-a:active {
+.cat:active {
   transform: translateY(10px);
   transform: scale(1.2);
 }
@@ -100,13 +100,14 @@ h2 {
   bottom: 0;
   left: 0;
 }
-nav {
+#nav-container {
   /* position: sticky; */
   display: flex;
   flex-direction: column;
-  max-width: 1px;
   top: 0;
-  padding: 10px;
+  padding: 10px 0 10px 0;
+  flex-wrap: nowrap;
+  max-width: 200px;
 }
 
 input {
@@ -115,6 +116,8 @@ input {
 
 #serc {
   padding-right: 108px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Footer */

@@ -116,6 +116,8 @@ input {
 
 #serc {
   padding-right: 108px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Footer */
