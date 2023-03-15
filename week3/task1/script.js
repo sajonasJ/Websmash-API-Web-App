@@ -13,9 +13,9 @@ $(function () {
         figCapArray.push($(this).text());
     });
     figz = $('figure').each(function (index) {
-        figArray.push($(this));
+        // figArray.push(figz);
     });
-
+    // console.log(figArray);
 });
 
 
@@ -30,45 +30,31 @@ let search_handler = () => {
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-// ! not working can access aray index but cannot access proper html figure
-// ! need to revise figz and figarray structure
+    // ! not working can access aray index but cannot access proper html figure
+    // ! need to revise figz and figarray structure
 
-    if (figCapArray.includes(entry)) {
-        htmlStr += `<figure>${[figCapArray.indexOf(entry)]}</figure>`;
-        console.log("true");
-        console.log(figCapArray.indexOf(entry));
-        isCaption = true;
-        $(`#thumbnails`).html(htmlStr);
-        console.log(figArray[4]);
-    } else {
-        isCaption = false;
-        console.log('false');
-    }
-
-
-
-
-
-
-
-
-
-
-
-
+    // if (figCapArray.includes(entry)) {
+    //     htmlStr += `<figure>${$('figure').eq(figCapArray.indexOf(entry))}</figure>`;
+    //     console.log("true");
+    //     // console.log(figCapArray.indexOf(entry));
+    //     isCaption = true;
+    //     $(`#thumbnails`).html(htmlStr);
+    //     // console.log(figArray[4]);
+    //     console.log($('figure').eq(4));
+    // } else {
+    //     isCaption = false;
+    //     console.log('false');
+    // }
 
 
 
 
 
     if (isNaN(entry) && isCaption === false) {
-                $("#nav-container").html() +=
-                    `<a class="cat" href="">${entry}</a>`;
-            }
-            $(`#thumbnails`).html(htmlStr);
-
+        $('#nav-container').append(`<a class="cat" href="">${entry}</a>`)
+    }
     console.log(`this is the input: ${entry}`);
-    // console.log(figCapArray);
+
 };
 
 
@@ -82,18 +68,6 @@ let search_handler = () => {
 
 
 
-
-
-
-
-// $("s#searchClick").onclick = () => {
-//     let searchNum = id("searchNum").value.trim().toLowerCase();
-
-//     // if array is a number;
-//     id("thumbnails").innerHTML = "";
-//     for (let i = 0; i < searchNum && i < 10; i++) {
-//         id("thumbnails").innerHTML +=
-//             `<figure>${figs}</figure>`;
 //     }
 
 //     if (figArray.includes(searchNum)) {
@@ -104,9 +78,4 @@ let search_handler = () => {
 //         isCaption = false;
 //     }
 
-//     // if search is not a number, add search to category list
-//     if (isNaN(searchNum) && isCaption === false) {
-//         id("nav-container").innerHTML +=
-//             `<a class="cat" href="">${searchNum}</a>`;
-//     }
-// };
+//  
