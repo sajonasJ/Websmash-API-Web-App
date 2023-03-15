@@ -1,0 +1,44 @@
+@media (max-width: 767px) {
+  .main {
+    /* background-color: aquamarine; */
+    flex-direction: column;
+  }
+
+  aside{
+    max-width: 100%;
+    display: flex;
+  }
+  #nav-container {
+    flex-direction: row;
+    display: flex;
+    /* align-items: baseline; */
+    gap: 1px;
+    flex-wrap: wrap;
+    flex: 1;
+    max-width: fit-content;
+  }
+  .cat {
+    padding: 10px;
+  }
+
+  .serc {
+    max-width: 140px;
+    margin-top: 0;
+    align-self: baseline;
+    padding: 10px 0 10px 0;
+  }
+  input {
+    max-width: 108px;
+    margin-top: 0;
+  }
+  /* #serc {
+    max-width: 100px;
+  } */
+
+  section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+ 
+}

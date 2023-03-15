@@ -1,15 +1,15 @@
 // Boilerplate for changing the number of items on the page using
 let isCaption = false;// boolean to limit the category list for noncaptions
 // bunch of alias functions
-function tagName(tagName) {
-    return document.getElementsByTagName(tagName);
-}
+// function tagName(tagName) {
+//     return document.getElementsByTagName(tagName);}
 
-function id(idName) {
-    return document.getElementById(idName);
-}
+// function id(idName) {
+//     return document.getElementById(idName);}
 
-// figs get the output in plain html format, it only grabs one item
+const tagName = tagName => document.getElementsByTagName(tagName);//>>>>shorter version
+const id = idName => document.getElementById(idName);
+
 
 // let figs = document.getElementsByTagName("figure")[0].innerHTML; BELOW is the short version
 let figs = tagName("figure")[0].innerHTML;
@@ -21,8 +21,8 @@ let figFrames = tagName("figure");
 // to get all captions,we need to grab elements by tag name
 let figs_C = document.getElementsByTagName("figcaption");
 
-    figArray = new Array();  // create an empty array for captions
-    figFramesArray = new Array(); // create an empty array for figures
+  let  figArray = new Array();  // create an empty array for captions
+   let figFramesArray = new Array(); // create an empty array for figures
 
 
 // put the figcaptions inside an array
