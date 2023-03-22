@@ -6,17 +6,19 @@ let isCaption = false;
 let figCapArray = [];
 let figArray = [];
 $(function () {
-    fig = $('figure').html();
+    // figure 0
+    fig = $('figure').eq(4);
     $('#searchClick').click(search_handler);
-    fig_cap = $('figcaption').each(function (index) {
-        // console.log(index + ':' + $(this).text());
-        figCapArray.push($(this).text());
-    });
-    figz = $('figure').each(function (index) {
-        // figArray.push(figz);
-    });
-    // console.log(figArray);
-});
+    // 
+    for (let i = 0; i < $('figure').length; i++) {
+        // console.log($('figure'));
+        figArray.push($('figure'));
+        // console.log($('figure').get());
+    }
+    console.log($('figure').eq(1));
+}
+
+);
 
 
 
@@ -26,25 +28,22 @@ let search_handler = () => {
     for (let i = 0; i < entry; i++) {
         htmlStr += `<figure>${fig}</figure>`;
     }
-    $(`#thumbnails`).html(htmlStr);
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 
 
     // ! not working can access aray index but cannot access proper html figure
     // ! need to revise figz and figarray structure
 
-    // if (figCapArray.includes(entry)) {
-    //     htmlStr += `<figure>${$('figure').eq(figCapArray.indexOf(entry))}</figure>`;
-    //     console.log("true");
-    //     // console.log(figCapArray.indexOf(entry));
-    //     isCaption = true;
-    //     $(`#thumbnails`).html(htmlStr);
-    //     // console.log(figArray[4]);
-    //     console.log($('figure').eq(4));
-    // } else {
-    //     isCaption = false;
-    //     console.log('false');
-    // }
+    if (figCapArray.includes(entry)) {
+        htmlStr += `<figure>${fig_cap[2]}</figure>`;
+        console.log("true");
+        // console.log(fig_cap);
+        isCaption = true;
+
+    } else {
+        isCaption = false;
+        console.log('false');
+    }
 
 
 
@@ -55,6 +54,8 @@ let search_handler = () => {
     }
     console.log(`this is the input: ${entry}`);
 
+    // html update
+    $(`#thumbnails`).html(htmlStr);
 };
 
 
