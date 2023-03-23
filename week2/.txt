@@ -1,0 +1,13 @@
+Peer Review:
+Review by Jonas to  Dachuan Xu
+He was able to do the all the task mentioned and was able to define global and local scopes of the variables. Marks 1.5
+Review by Dachuan Xu to Jonas Sajonas:
+Completed all 5 tasks and explained to different variables scopes used in his code. Well done. 1.5marks
+
+Review by Jonas to  Alexander Buchhorn
+He was able to do all task . The rest of the tasks are working well and can discuss global and local variables. Marks 1.5
+Review by Alexander to Jonas Sajonas
+Jonas was clear in explaining his code and had a lot of commented lines which made it very readable for a third party. He completed all tasks that were assigned. I award him full 1.5 marks.
+
+Reflection: 
+I was able to complete all task and do and able to show the search value match with the figure captions. I was able to discuss global and local variables and their scopes. I intend to research more about other methods how to make my code simpler and readable.

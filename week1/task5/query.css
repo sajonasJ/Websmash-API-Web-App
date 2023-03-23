@@ -4,41 +4,46 @@
     flex-direction: column;
   }
 
-  nav{
+  nav {
     flex-direction: row;
     display: flex;
     /* align-items: baseline; */
     gap: 1px;
     flex-wrap: wrap;
-    flex:1;
+    flex: 1;
     flex-basis: auto;
-  
+
   }
-  .cat{
+
+  .cat {
     padding: 10px;
   }
 
-  .serc{
+  .serc {
     max-width: 140px;
     margin-top: 0;
-    align-self:baseline ;
-}
-input{
-  max-width: 108px;
-  margin-top: 0;
-}
-#serc{
-  max-width: 100px;
-}
+    align-self: baseline;
+  }
 
-  section{
+  input {
+    max-width: 108px;
+    margin-top: 0;
+  }
+
+  #serc {
+    max-width: 100px;
+  }
+
+  section {
     flex-direction: column;
     align-items: center;
   }
 }
-input{
+
+input {
   align-self: baseline;
 }
-button{
+
+button {
   align-self: baseline;
 }

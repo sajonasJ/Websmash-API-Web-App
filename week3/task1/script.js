@@ -7,52 +7,49 @@ let figCapArray = [];
 let figArray = [];
 $(function () {
     // figure 0
-    fig = $('figure').eq(4);
+    fig = $('figure').hmtl();
     $('#searchClick').click(search_handler);
     // 
     for (let i = 0; i < $('figure').length; i++) {
-        // console.log($('figure'));
         figArray.push($('figure'));
-        // console.log($('figure').get());
+
     }
-    console.log($('figure').eq(1));
 }
-
 );
-
+console.log(fig);
 
 
 let search_handler = () => {
+    // adds a figure depends on the search value
     let entry = $('#searchNum').val();
     let htmlStr = '';
     for (let i = 0; i < entry; i++) {
         htmlStr += `<figure>${fig}</figure>`;
     }
 
-
-
     // ! not working can access aray index but cannot access proper html figure
     // ! need to revise figz and figarray structure
 
-    if (figCapArray.includes(entry)) {
-        htmlStr += `<figure>${fig_cap[2]}</figure>`;
-        console.log("true");
-        // console.log(fig_cap);
-        isCaption = true;
+    // if (figCapArray.includes(entry)) {
+    //     htmlStr += `<figure>${fig_cap}</figure>`;
+    //     console.log("true");
+    //     // console.log(fig_cap);
+    //     isCaption = true;
 
-    } else {
-        isCaption = false;
-        console.log('false');
-    }
-
+    // } else {
+    //     isCaption = false;
+    // }
 
 
-
-
-    if (isNaN(entry) && isCaption === false) {
-        $('#nav-container').append(`<a class="cat" href="">${entry}</a>`)
-    }
+    // if (isNaN(entry) && isCaption === false) {
+    //     $('#nav-container').append(`<a class="cat" href="">${entry}</a>`)
+    // }
     console.log(`this is the input: ${entry}`);
+    console.log(`this is ${isCaption}`);
+    // console.log(fig);
+
+
+
 
     // html update
     $(`#thumbnails`).html(htmlStr);
