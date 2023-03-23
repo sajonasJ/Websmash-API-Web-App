@@ -21,8 +21,8 @@ let figFrames = tagName("figure");
 // to get all captions,we need to grab elements by tag name
 let figs_C = document.getElementsByTagName("figcaption");
 
-  let  figArray = new Array();  // create an empty array for captions
-   let figFramesArray = new Array(); // create an empty array for figures
+let figArray = new Array();  // create an empty array for captions
+let figFramesArray = new Array(); // create an empty array for figures
 
 
 // put the figcaptions inside an array
@@ -44,11 +44,6 @@ id("serc").onclick = () => { // SHORT HAND VERSION OF CODE ABOVE THIS
 
     let searchNum = id("searchNum").value.trim().toLowerCase();
 
-    // if search is a number less than 10, loop figure[0] same value as input
-    // thumbnails is where the code will be executed hence needs to be empty
-    //  deleted by adding an empty string before inserting code
-
-    // if array is a number;
     id("thumbnails").innerHTML = "";
     for (let i = 0; i < searchNum && i < 10; i++) {
         id("thumbnails").innerHTML +=
