@@ -16,6 +16,7 @@ $(function () {
 
 // clears the 
 let search_handler = () => {
+    // adds a figure depends on the search value
     let entry = $('#searchNum').val();
     let htmlStr = '';
     for (let i = 0; i < entry; i++) {
