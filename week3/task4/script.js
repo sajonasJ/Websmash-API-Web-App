@@ -1,47 +1,38 @@
+// This boiler plate is using fetch to get some data from a meme website and generates
+// a random number per iteration. extra non-functioning code was removed.
+
 // Global Variables
-let figure;
-let isCaption = false;
+const SOMEURL = 'https://api.imgflip.com/get_memes';
+// let image_num = 10;
+let image_num = Math.floor(Math.random() * 20) + 10;
 // Start - initialisation
-$(function () {
-    $('#thumbnails').hide();
-    $.get('/week3/data/photodata.json', function (data) {
-        display(data);
-        repeat(data)
-        $('#thumbnails').show(500);
-    });
-  
-    $('#search-btn').click(search_handler);
+
+// fetch
+fetch(SOMEURL).then(function (response) {
+    return response.json();
+}).then(function (data) {
+    display(data);
+}).catch(function (error) {
+    alert(error);
 });
-function repeat(photodata){
-    figure = `<figure><a href="${photodata.photos[0].file}">
-    <img src="${photodata.photos[0].file}" alt="${photodata.photos[0].alternate}"/>
-    <figcaption>${photodata.photos[0].title}</figcaption></figure>`;
-}
 
-function display(photodata) {
+// Jquery Ready
+$(function () {
+    
+});
+
+// Display data
+function display(data) {
     let htmlStr = "";
-    for (let i = 0; i < photodata.photos.length; i++) {
-        htmlStr += `<figure class="scenery"><a href="${photodata.photos[i].file}">
-        <img src="${photodata.photos[i].file}" alt="${photodata.photos[i].alternate}"/>
-        <figcaption>${photodata.photos[i].title}</figcaption></figure>`
+    let memeLength = data.data.memes.length;
+    for (let i = 0; i < image_num; i++) {
+        random_num = Math.floor(Math.random() * memeLength);
+        htmlStr += `<figure class="scenery">
+            <img src="${data.data.memes[random_num].url}" 
+            alt="${data.data.memes[random_num].name}"/>
+            <figcaption>${data.data.memes[random_num].name}</figcaption></figure>`
     }
+
+    // display images
     $('#thumbnails').html(htmlStr);
-
-}
-
-// search functions
-function search_handler() {
-    let input = $('#search-input').val();
-    let htmlStr = ''
-
-    if (isNaN(input) && isCaption == false) {
-        let cat_item = `<a class="cat" href="">${input}</a>`;
-        $('#nav-container').append(cat_item);
-
-    } else {
-        for (let i = 0; i < input; i++) {
-            htmlStr += figure;
-        }
-        $('#thumbnails').html(htmlStr);
-    }
 }

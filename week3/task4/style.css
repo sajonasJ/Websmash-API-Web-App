@@ -44,6 +44,9 @@ h1 {
 
 /* Section */
 figure {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
   border: solid 1px black;
   width: fit-content;
   padding: 10px 30px 10px 30px;
@@ -51,8 +54,10 @@ figure {
 }
 
 img {
+  display: flex;
   width: 240px;
   height: 240px;
+  justify-content: center;
 }
 
 figcaption {
