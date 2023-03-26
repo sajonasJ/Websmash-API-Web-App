@@ -1,3 +1,5 @@
+// Boiler plater for using search event handlers
+
 // Global Variables
 let figure;
 let isCaption = false;

@@ -1,3 +1,5 @@
+// Boiler plate for using json .get local data 
+
 // Global Variables
 let figure;
 let isCaption = false;

@@ -1,4 +1,4 @@
-// BOILER PLATE .GET and Fetch
+// BOILER PLATE for using .GET and Fetch from outside data
 // Global Variables
 const SOMEURL ='http://quotes.rest/qod.json?category=inspire';
 // loaded before as not dependent on the website
