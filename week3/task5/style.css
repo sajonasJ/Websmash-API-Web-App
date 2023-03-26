@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+}
+/* Header */
+header {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(78, 53, 120, 1) 51%,
+    rgba(121, 9, 37, 1) 100%
+  );
+  margin: 0;
+  padding: 30px 0 30px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+h1 {
+  color: white;
+  margin: 0;
+}
+
+#btn {
+  position: absolute;
+  right: 2.5%;
+  top: 35px;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 5px 20px 5px 20px;
+  border: solid 1px black;
+}
+#btn:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+#btn:active {
+  transform: translateY(4px);
+}
+.log:active {
+  color: white;
+}
+
+/* Section */
+figure {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 2px black;
+  width: fit-content;
+  padding: 10px 30px 10px 30px;
+  margin: 02.5px 10px 10px 2.5px;
+  border-radius: 25px;
+  box-shadow: 5px 10px;
+  z-index: 1;
+  background-color: white;
+}
+
+figure:hover{
+  transform:scale(1.15);
+  transition-duration: .5s;
+  z-index: 5;
+  cursor: pointer;
+}
+
+img {
+  display: flex;
+  width: 240px;
+  height: 240px;
+  justify-content: center;
+}
+
+figcaption {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.main {
+  display: flex;
+  flex-basis: auto;
+  margin-bottom: 100px;
+}
+section {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Navigation */
+aside {
+  padding: 15px;
+}
+.cat {
+  display: flex;
+  padding: 0 0 0 15px;
+  /* max-width: 260px; */
+  text-decoration: none;
+  border: solid 1px black;
+  border-radius: 5px;
+  color: black;
+  background-color: lightgray;
+  transition-duration: 0.3s;
+}
+.cat:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  background-color: rgb(172, 47, 47);
+}
+.cat:active {
+  transform: translateY(10px);
+  transform: scale(1.2);
+}
+h2 {
+  color: black;
+  bottom: 0;
+  left: 0;
+}
+#nav-container {
+  /* position: sticky; */
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  padding: 10px 0 10px 0;
+  flex-wrap: nowrap;
+  max-width: 200px;
+}
+
+input {
+  margin-top: 10px;
+}
+
+#search-btn {
+  padding-right: 108px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer */
+footer {
+  background-color: black;
+  margin-top: auto;
+  padding: 30px 10px 10px 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  z-index: 10;
+}
+h3 {
+  color: white;
+}
