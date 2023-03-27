@@ -1,0 +1,36 @@
+@media (max-width: 768px) {
+    * {
+        background-color: rgb(155, 155, 226);
+     
+    }
+    .responsive{
+        display:flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 768px) {
+    * {
+        background-color: rgb(218, 93, 93);
+    }
+    .responsive{
+        display: flex;
+        justify-content: center;
+    }
+
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+    @media (min-width: 1024px) {
+        * {
+            background-color: rgb(62, 214, 112);
+        }
+        main{
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
