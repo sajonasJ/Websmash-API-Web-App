@@ -1,36 +1,77 @@
 @media (max-width: 768px) {
+
+    /*BLUE*/
     * {
         background-color: rgb(155, 155, 226);
-     
+
     }
-    .responsive{
-        display:flex;
+
+    main {
+        display: flex;
+        align-items: center;
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    nav{
+        max-width: 100%;
+    }
+    aside{
+       display: flex; 
+       flex-direction: column;
+       align-items: center;
+
     }
 }
 
+
 @media (min-width: 768px) {
+
+    /*RED*/
     * {
         background-color: rgb(218, 93, 93);
     }
-    .responsive{
+
+    .responsive {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    main {
         display: flex;
         justify-content: center;
+        flex-direction: row;
+        flex-grow: 2;
+        flex-wrap: wrap;
+    }
+    aside{
+        max-width: 100%;
     }
 
-main{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 
-    @media (min-width: 1024px) {
-        * {
-            background-color: rgb(62, 214, 112);
-        }
-        main{
-            display: flex;
-            flex-direction: row;
-        }
+@media (min-width: 1024px) {
+
+    /*GREEN*/
+    * {
+        background-color: rgb(62, 214, 112);
     }
+
+    .responsive {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-grow: 2;
+    }
+    aside{
+        max-width: 20%;
+    }
+
+
 }
