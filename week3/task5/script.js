@@ -28,6 +28,7 @@ function display(data) {
 // math random generates the random number, math floor makes sure that the number is an integer and multiplied by 2 then the sort function arranges
 // the memes according to the new numbers generated
     memeLength.sort(function() {
+        console.log(Math.floor(Math.random()*2));
         return Math.floor(Math.random()*2);
       });
 
@@ -36,6 +37,7 @@ function display(data) {
     });
     $('#thumbnails').html(htmlStr);
 }
+
 
 
 

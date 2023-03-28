@@ -14,19 +14,52 @@ body {
 header {
     background-color: rgb(39, 37, 37);
     width: 100%;
+    height: 10rem;
     top: 0px;
     border: solid 1px black;
     position: sticky;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex:1;
+}
+.nav-container{
+background-color: brown;
+}
+
+
+#nav-container{
+    display: flex;
+    flex-direction: row;
+    gap:30px ;
+    padding:10px;
+    align-self: flex-start;
 }
 
 .nav-list {
     border: solid 1px black;
     list-style: none;
 }
+#thumbnail-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+    flex-wrap: wrap;
+}
 
 figure {
     border: solid 1px black;
+}
+img{
+    display: flex;
+    flex: 1;
 }
 
 footer {
@@ -54,4 +87,5 @@ p {
 h1 {
     color: aliceblue;
     background-color: transparent;
+    
 }

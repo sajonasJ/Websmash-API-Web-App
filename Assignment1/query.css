@@ -1,26 +1,51 @@
-@media (max-width: 768px) {
+/*BLUE*/
+* {
+    background-color: rgb(155, 155, 226);
 
-    /*BLUE*/
-    * {
-        background-color: rgb(155, 155, 226);
+}
 
-    }
+figure {
+    border: solid 1px black;
+}
+
+img {
+   height: auto;
+   width: 100vw;
 }
 
 
-@media (min-width: 768px) {
+
+@media screen and (min-width: 768px) {
 
     /*RED*/
     * {
         background-color: rgb(218, 93, 93);
     }
 
+    figure {
+        border: solid 1px black;
+ height:auto;
+ width: 80vw;
+    }
+
+    img {
+        height: auto;
+        width: 100%;
+ 
+    }
+
 }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
 
     /*GREEN*/
     * {
         background-color: rgb(62, 214, 112);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    * {
+        background-color: rgb(1, 1, 1);
     }
 }
