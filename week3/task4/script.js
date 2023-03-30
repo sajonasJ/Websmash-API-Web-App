@@ -3,8 +3,8 @@
 
 // Global Variables
 const SOMEURL = 'https://api.imgflip.com/get_memes';
-// let image_num = 10;
-let image_num = Math.floor(Math.random() * 20) + 10;
+let image_num = 10;
+// let image_num = Math.floor(Math.random() * 20) + 10;
 // Start - initialisation
 
 // fetch

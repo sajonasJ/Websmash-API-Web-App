@@ -17,7 +17,6 @@ fetch(SOMEURL).then(function (response) {
 
 // Jquery Ready
 $(function () {
-
 });
 
 
@@ -33,7 +32,9 @@ function display(data) {
       });
 
     memeLength.forEach(function (memeLength) {
-        htmlStr += `<figure class="scenery"><img src="${memeLength.url}" alt="${memeLength.name}"/><figcaption>${memeLength.name}</figcaption></figure>`
+        htmlStr += `<figure class="scenery">
+        <img src="${memeLength.url}" alt="${memeLength.name}"/>
+        <figcaption>${memeLength.name}</figcaption></figure>`
     });
     $('#thumbnails').html(htmlStr);
 }

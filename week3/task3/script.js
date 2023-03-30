@@ -5,12 +5,12 @@ const SOMEURL ='http://quotes.rest/qod.json?category=inspire';
 
 
 // JQUERY
-// $.get(SOMEURL, function (data) {
-//     console.log(`this is from jQuery:`);
-//     console.log(data.contents.quotes[0].quote);
-// }).fail(function(){
-//     alert('Get Request Failed');
-// });
+$.get(SOMEURL, function (data) {
+    console.log(`this is from jQuery:`);
+    console.log(data.contents.quotes[0].quote);
+}).fail(function(){
+    alert('Get Request Failed');
+});
 
 
 // FETCH
