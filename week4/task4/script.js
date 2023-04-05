@@ -1,3 +1,5 @@
+// boiler plate for the modal and event function with captions
+
 // Global Variables
 let photos = [];
 const API_KEY = 'dc140afe3fd3a251c2fdf9dcd835be5c';
@@ -18,8 +20,8 @@ fetch(INTRSTNG).then(function (response) {
 
 // Jquery Ready
 $(function () {
-    $('#modal-close').click(function(){
-        $('#modal-container').css('display','none');
+    $('#modal-close').click(function () {
+        $('#modal-container').css('display', 'none');
     })
 });
 
@@ -49,17 +51,18 @@ function getSizes(photoObj) {
 function display(data) {
     let htmlStr = "";
     for (let i = 0; i < data.length; i++) {
-        htmlStr += `<figure class="scenery" data-full="${data[i].full}">
+        htmlStr += `<figure class="scenery" data-text="${data[i].title}" data-full="${data[i].full}">
         <img src="${data[i].file}" alt="${data[i].title}"/>
         <figcaption>${data[i].title}</figcaption></figure>`
     };
     $('#thumbnails').html(htmlStr);
-    $('figure').each(function(index){
-        $(this).click(function(){
-            $('#modal-container').css('display','flex');
-            $('#modal-content').attr('src',"");
-            $('#modal-content').attr('src',$(this).attr('data-full'));
+    // event handler for clicking the modal
+    $('figure').each(function (index) {
+        $(this).click(function () {
+            $('#modal-container').css('display', 'flex');
+            $('#modal-content').attr('src', "");
+            $('#modal-content').attr('src', $(this).attr('data-full'));
+            $('#modal-caption').text($(this).attr('data-text'));
         });
     });
 }
-
