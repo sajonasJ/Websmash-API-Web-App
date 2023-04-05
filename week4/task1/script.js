@@ -17,14 +17,14 @@ fetch(INTRSTNG).then(function (response) {
 $(function () {
 });
 
-// convert photoID into URL
+// convert photoID and caption into URL
 function fetchPhoto(data) {
     let photoID = data.photos.photo[0].id;
-    let photoCap= data.photos.photo[0].title;
+    let photoCap = data.photos.photo[0].title;
     getSizes(photoID, photoCap);
 }
-
-function getSizes(photoID,photoCap) {
+// get sizes for the photo and run display
+function getSizes(photoID, photoCap) {
     let getSizeReq = GETSIZES + photoID;
     $.get(getSizeReq, function (data) {
         let photoURL = data.sizes.size[10].source;
@@ -33,9 +33,7 @@ function getSizes(photoID,photoCap) {
         display(photoArr);
     });
 }
-
-
-
+// display data
 function display(data) {
     let htmlStr = "";
     for (let i = 0; i < data.length; i++) {
@@ -45,36 +43,3 @@ function display(data) {
     };
     $('#thumbnails').html(htmlStr);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Display data
-// function display(data) {
-//     let htmlStr = "";
-//     let memeLength = data.data.memes.length;
-//     for (let i = 0; i < image_num; i++) {
-//         htmlStr += `<figure class="scenery">
-//             <img src="${data.data.memes[i].url}"
-//             alt="${data.data.memes[i].name}"/>
-//             <figcaption>${data.data.memes[i].name}</figcaption></figure>`
-//     }
-//     // display images
-//     $('#thumbnails').html(htmlStr);
-// }

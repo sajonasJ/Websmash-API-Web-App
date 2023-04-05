@@ -19,8 +19,6 @@ fetch(SOMEURL).then(function (response) {
 $(function () {
 });
 
-
-
 function display(data) {
     let htmlStr = "";
     let memeLength = data.data.memes;
@@ -38,36 +36,3 @@ function display(data) {
     });
     $('#thumbnails').html(htmlStr);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Display data
-// function display(data) {
-//     let htmlStr = "";
-//     let memeLength = data.data.memes.length;
-//     for (let i = 0; i < image_num; i++) {
-//         htmlStr += `<figure class="scenery">
-//             <img src="${data.data.memes[i].url}"
-//             alt="${data.data.memes[i].name}"/>
-//             <figcaption>${data.data.memes[i].name}</figcaption></figure>`
-//     }
-//     // display images
-//     $('#thumbnails').html(htmlStr);
-// }
