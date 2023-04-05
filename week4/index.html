@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="png/jpg"
+      sizes="32x32"
+      href=" ../images/favicon.ico"
+    />
+ 
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="query.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>Week4 Task1</title>
+  </head>
+
+  <body>
+    <!-- top -->
+    <header>
+      <h1>My Outstanding Photo Album</h1>
+      <button id="btn" type="button" class="log">Login</button>
+    </header>
+    <!-- body -->
+    <div class="main">
+      <aside>
+        <nav id="nav-container">
+          <h2>Categories:</h2>
+          <a class="cat" href="">Cities</a>
+          <a class="cat" href="">Beaches</a>
+          <a class="cat" href="">Downtown</a>
+          <a class="cat" href="">Amusements</a>
+          <a class="cat" href="">Parks</a>
+        </nav>
+          <div class="search">
+            <input type="text" id="search-input" placeholder="Search..." />
+            <button id="search-btn">Enter</button>
+          </div>
+       
+      </aside>
+      <!-- actual body -->
+      <section id="thumbnails">
+      </section>
+    </div>
+    <!-- foot -->
+    <footer>
+      <h3>by @Jonas Sajonas</h3>
+    </footer>
+  </body>
+</html>
