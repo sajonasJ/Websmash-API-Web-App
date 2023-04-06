@@ -5,6 +5,11 @@
 
 }
 
+a {
+    color: blue;
+    text-decoration: none; 
+  }
+
 body {
     display: flex;
     flex-direction: column;
