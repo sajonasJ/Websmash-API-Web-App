@@ -16,7 +16,6 @@ $(function () {
         $('#modal-container').css('display', 'none');
     })
 
-
     fetch(INTRSTNG).then(function (response) {
         return response.json();
     }).then(function (data) {
@@ -48,7 +47,6 @@ function getSizes(photoObj) {
         if (mrequest === mrecieved) {
             display(photos);
         }
-        console.log(mrecieved);
     });
 }
 // display data

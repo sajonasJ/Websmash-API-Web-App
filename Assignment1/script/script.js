@@ -1,63 +1,87 @@
 // Global Variables
+let photos = [];
+const API_KEY = 'dc140afe3fd3a251c2fdf9dcd835be5c';
+const INTRSTNG = 'https://www.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=10&format=json&nojsoncallback=1&api_key=' + API_KEY;
+const GETSIZES = 'https://www.flickr.com/services/rest/?method=flickr.photos.getSizes&format=json&nojsoncallback=1&api_key=' + API_KEY + '&photo_id=';
+let mrequest = 0;
+let mrecieved = 0;
 // Start - initialisation
 $(function () {
     $.get('../json/imgdata.json', function (jsonData) {
-        getPhotos(jsonData);
-        // displayMain(jsonData);
+        //TODO GET JSON DATA
         getDestination(jsonData);
-        getNavigation(jsonData);
-        // displayMain(jsonData);
+    });
+
+
+    $('#modal-close').click(function () {
+        //TODO SET MODAL TO NONE
+        $('#modal-container').css('display', 'none');
+    })
+
+
+    fetch(INTRSTNG).then(function (response) {
+        //TODO FETCH FLICKR API
+        return response.json();
+    }).then(function (data) {
+        fetchPhoto(data);
+    }).catch(function (error) {
+        alert(error);
     });
 });
 
-// function displayMain(data) {
-//     let mainStr = "";
-//     let photo = data.photos;
-//     let dest = data.destination;
-//     for (let i = 0; i < dest.length; i++) {
-//         if ($(location).attr('href') === dest[i].file) {
-//             mainStr += `<figure class="scenery">
-//             <img src="${photo[i].file}"
-//             alt="${photo[i].alternate}"/>
-//             <figcaption>${photo[i].title}</figcaption>
-//             </figure><p id="description">${photo[i].description}</p>`
-//         }
-//     }
-//     console.log(mainStr)
-//     console.log(dest[2].file)
-//     console.log($(location).attr('href'))
-//     $('#thumbnail-container').html(mainStr);
-// }
-//  TODO: working code
-function getPhotos(data) {
-    let htmlStr = "";
-    let photo = data.photos;
-    for (let i = 0; i < photo.length; i++) {
-        htmlStr += `<figure class="scenery">
-        <img src="${photo[i].file}"
-        alt="${photo[i].alternate}"/>
-        <figcaption>${photo[i].title}</figcaption>
-        </figure><p id="description">${photo[i].description}</p>`
+function fetchPhoto(data) {
+    //TODO CONVERT RETURNED API DATA TO USABLE OBJECT
+    mrequest = data.photos.photo.length;
+    for (let i = 0; i < mrequest; i++) {
+        let photoObj = { 'id': data.photos.photo[i].id, 'title': data.photos.photo[i].title };
+        photos.push(photoObj);
+        getSizes(photoObj);
     }
-    $('#thumbnail-container').html(htmlStr);
+}
+
+function getSizes(photoObj) {
+    // TODO USE THE DATA OBJECT AND GET SIZES FROM API
+    let getSizeReq = GETSIZES + photoObj.id;
+    mrecieved = 0;
+    $.get(getSizeReq, function (data) {
+        // TODO THIS IS INSIDE A FOR LOOP FROM fetchphoto
+        mrecieved++;
+        photoObj.file = data.sizes.size[5].source;
+        photoObj.full = data.sizes.size[data.sizes.size.length - 1].source;
+        if (mrequest === mrecieved) {
+            // TODO IT COUNTS ITERATION BEFORE DISPLAYING PHOTO
+            display(photos);
+        }
+    });
 }
 
 function getDestination(data) {
+    //TODO DISPLAY NAVIGATION IMG LINKS
     let desStr = "";
     let dest = data.destination;
     for (let i = 0; i < dest.length; i++) {
-        desStr += `<li><a href="${dest[i].file}">
-        ${dest[i].name}</a></li>`
+        desStr += `<li><a href="${"#"}"><figure id ="fig-id"><img id="nav-img" src="${dest[i].file}" alt="${dest[i].alt}"> 
+        <figcaption id="fig-links">${dest[i].name}</figcaption></figure></a></li>`
     }
     $('#destination-list').html(desStr);
 }
+function display(data) {
+    let htmlStr = "";
+    for (let i = 0; i < data.length; i++) {
+        htmlStr += `<figure class="scenery" data-text="${data[i].title}" data-full="${data[i].full}">
+        <img id="api-img" src="${data[i].file}" alt="${data[i].title}"/>
+        <figcaption id ="fig-pic">${data[i].title}</figcaption></figure>`
+    };
 
-function getNavigation(data) {
-    let navStr = "";
-    let nav = data.navigation;
-    for (let i = 0; i < nav.length; i++) {
-        navStr += `<li><a href="${nav[i].file}">
-        ${nav[i].name}</a></li>`
-    }
-    $('#nav-container').html(navStr);
+    $('#thumbnail-container').html(htmlStr);
+
+    $('.scenery').each(function (index) {
+        //TODO event handler for clicking the modal, used for each loop to pass modal properties
+        $(this).click(function () {
+            $('#modal-container').css('display', 'flex');
+            $('#modal-content').attr('src', "");
+            $('#modal-content').attr('src', $(this).attr('data-full'));
+            $('#modal-caption').text($(this).attr('data-text'));
+        });
+    });
 }

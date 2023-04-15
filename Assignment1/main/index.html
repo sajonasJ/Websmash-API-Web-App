@@ -16,6 +16,7 @@
     <script src="../script/script.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/query.css" />
+    <link rel="stylesheet" href="../css/modals.css" />
 
     <title>Queensland Tourism Destinations</title>
 </head>
@@ -23,18 +24,18 @@
 <body>
     <header>
         <div id="title">
-            <a href="../main/index.html"><h1>Tourism Queensland</h1></a>
+            <a href="../main/index.html">
+                <h1>Tourism Queensland</h1>
+            </a>
         </div>
-        <nav class="nav-container">
-            <ul class="nav-list" id="nav-container">
-            </ul>
-        </nav>
     </header>
     <!-- categories -->
     <div id="max-container" class="responsive">
+        <div id="destination-h2">
+            <h2>Destinations</h2>
+        </div>
         <main>
             <nav id="destination-container">
-                <h2>Destinations:</h2>
                 <ul class="nav-list" id="destination-list">
                 </ul>
 
@@ -66,6 +67,11 @@
     <address>
         <p>Address</p>
     </address>
+    <div id="modal-container">
+        <span id ="modal-close">&times;</span>
+        <img id="modal-content">
+        <div id="modal-caption"></div>
+      </div>
 </body>
 
 </html>
