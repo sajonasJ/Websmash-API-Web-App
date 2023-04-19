@@ -227,4 +227,11 @@ iframe {
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 25vw;
+}
+
+.nav-list-aside{
+    display: flex;
+    flex-direction: column-reverse;
 }
