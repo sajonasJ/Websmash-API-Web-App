@@ -112,7 +112,7 @@ h1 {
     color: rgb(209, 217, 94);
     background-color: transparent;
     background: black;
-    text-align: center;
+    /* text-align: center; */
     margin: auto;
     font-family: 'Martel Sans', sans-serif;
 }
