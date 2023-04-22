@@ -4,39 +4,39 @@
     padding: 0;
     box-sizing: border-box;
     background-color: rgb(155, 155, 226);
-
 }
 
 main {
     display: flex;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
+    flex-direction: column;
 }
 
 /*! for testing only */
-figure {
+.destination-figure {
+    padding-top: 5px;
     border: solid black;
     display: flex;
     flex-direction: column;
-    padding: .5rem;
-    /* justify-content: ; */
-    /* align-items: center; */
+    height: 120px;
+    width: 100%;
 }
 
-figcaption {
-    align-self: center;
-    pointer-events: none;
-}
+
+
 
 figcaption:hover {
     cursor: pointer;
 }
 
 #destination-container {
-    display: flex;
+    display: none;
     /* flex-grow: 1; */
     flex-direction: column;
     align-items: flex-start;
     z-index: 0;
+    padding-top: .5em;
 }
 
 #destination-list {
@@ -50,24 +50,32 @@ figcaption:hover {
     width: 200px;
     border-radius: 30px;
     box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.25);
+    transition: .5s ease;
+    z-index: 1;
 }
 
-.nav-img {
+.nav-img:hover {
     cursor: pointer;
+    opacity: 0.5;
+    z-index: 1;
+
 }
 
 .fig-links {
     transform: translateY(-70px);
     text-shadow: 2px 2px 4px #ffffff, -2px -2px 4px #ffffff;
     font-size: 1.5rem;
+    transition: .5s ease;
+    z-index: 2;
+}
+
+.fig-links:hover {
+    opacity: 1;
+    z-index: 2;
 }
 
 .fig-pic {
     font-size: 2rem;
-}
-
-#api-img {
-    border-radius: 30px;
 }
 
 .scenery:hover {
@@ -114,8 +122,6 @@ header {
     z-index: 3;
 }
 
-
-
 figcaption {
     display: flex;
     flex-wrap: wrap;
@@ -123,7 +129,9 @@ figcaption {
     color: black;
     font-size: small;
     font-weight: bold;
-
+    align-self: center;
+    pointer-events: none;
+    justify-content: center;
 }
 
 .nav-list {
@@ -138,6 +146,7 @@ figcaption {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding-top: .5em;
 }
 
 footer {
@@ -223,15 +232,56 @@ iframe {
     z-index: 12;
 }
 
-#view-list{
+#view-list {
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
     flex-direction: column;
-    max-width: 25vw;
+    max-width: 100%;
+    padding-top: .5em;
 }
 
-.nav-list-aside{
+.nav-list-aside {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row-reverse;
+    list-style: none;
+    justify-content: flex-end;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+
+.scenery {
+    flex: 100%;
+    /* max-width: 100%; */
+    /* margin-top: 8px;  */
+    vertical-align: middle;
+    width: 100%;
+    /* display: flex; */
+    /* flex-direction: column;
+   justify-content: center; */
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+#logo{
+    background-color: transparent;
+    transform: scale(1.3);
+}
+
+h2{
+    text-align: center;
+}
+
+.recent-thumbnail{
+    max-width: 20vw;
 }

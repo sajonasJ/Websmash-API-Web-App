@@ -59,7 +59,7 @@ function getDestination(data) {
     let destination = data.destination;
     destination.forEach((destination) => {
         // TODO APPEND TO DISPLAYLIST THE JSON FILEOBJECT
-        displayList += `<li><figure><img class="nav-img" data-url="${destination.url}" src="${destination.file}" alt="${destination.alt}">
+        displayList += `<li><figure class = destination-figure><img class="nav-img" data-url="${destination.url}" src="${destination.file}" alt="${destination.alt}">
         <figcaption class="fig-links">${destination.name}</figcaption></figure></li>`;
     });
     $('#destination-list').html(displayList);
@@ -83,49 +83,79 @@ function getDestination(data) {
 
 function showImage(data) {
     // TODO DISPLAY PHOTOS ADD IMAGE DATA,MED SIZE AND FULL SIZE, TITLE AND DATE
-    let displayImage = "";
+    let displayImages = '<div class="grid row">';
+    let column = 1;
     data.forEach((item) => {
         // TODO PASS FETCHED API DATA TO DISPLAY PHOTOS
-        displayImage += `<figure class="scenery" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}"data-thumb="${item.thumb}" data-full="${item.full}">
-        <img id="api-img" src="${item.file}" alt="${item.title}"/>
-        <figcaption id ="fig-pic">"${item.title}" Date taken: ${item.date}</figcaption></figure>`
+        displayImages += `
+        <figure class="scenery column" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}" data-thumb="${item.thumb}" data-full="${item.full}">
+            <img id="api-img" class="column" src="${item.file}" alt="${item.title}"/>
+            <figcaption id ="fig-pic">"${item.title}"</figcaption>
+        </figure>
+    `;
+        if (column % 4 === 0) {
+            displayImages += '</div><div class="grid row">';
+        }
+        column++;
     });
-    $('#thumbnail-container').html(displayImage);
 
+    displayImages += '</div>';
+    $('#thumbnail-container').html(displayImages);
     $('.scenery').each(function () {
         //TODO event handler for clicking the modal, used for each loop to pass modal properties
-        $(this).click(() => {
-            $('#modal-container').css('display', 'flex');
-            $('#modal-content').attr('src', "");
-            $('#modal-content').attr('src', $(this).attr('data-full'));
-            $('#modal-caption').text($(this).attr('data-text'));
-            let viewImage = {
-                title: $(this).attr('data-text'),
-                thumb: $(this).attr('data-thumb'),
-                file: $(this).attr('data-src'),
-                date: $(this).attr('data-date'),
-                full: $(this).attr('data-full')
-            }
-            recentlyViewed.push(viewImage);
-            viewRecent(recentlyViewed)
-            // console.log(recentlyViewed.title);
-            viewRecent(recentlyViewed)
-        });
+        $(this).click(clickToModal);
     });
 }
-
+function clickToModal() {
+    $(this).click(() => {
+        $('#modal-container').css('display', 'flex');
+        $('#modal-content').attr('src', "");
+        $('#modal-content').attr('src', $(this).attr('data-full'));
+        $('#modal-caption').text($(this).attr('data-text'));
+        let viewImage = {
+            title: $(this).attr('data-text'),
+            thumb: $(this).attr('data-thumb'),
+            file: $(this).attr('data-src'),
+            date: $(this).attr('data-date'),
+            full: $(this).attr('data-full')
+        }
+        recentlyViewed.push(viewImage);
+        // TODO display the recentlyviewed using the click event
+        viewRecent(recentlyViewed)
+    })
+};
 
 function viewRecent(data) {
-    console.log(data)
-    let displayRecent = "";
+    // TODO display recent data taken from modal click event
+    data.forEach((item) => {
+        // TODO it filters and remove an object if the object is property is the same as the incoming object property
+        // TODO viewed is placeholderobject with placeholder.file property. 
+        // TODO in other words if file property is equal it's going to be included in a new array.
+        // TODO anon function checks if the property is not equal if not equal do nothing, if equal filter the object.
+        recentlyViewed = recentlyViewed.filter((viewed) => viewed.file !== item.file);
+        // TODO then pushes it
+        recentlyViewed.push(item);
+    });
 
-    data.forEach((data) => {
-        displayRecent += `<li><figure class="recent-thumbnail" data-src="${data.file}" data-date="${data.date}" data-text="${data.title}" data-thumb="${data.thumb}" data-full="${data.full}">
-            <img id="recent-img" src="${data.thumb}" alt="${data.title}"/>
-            <figcaption id ="fig-pic">${data.title} Date taken: ${data.date}</figcaption>
-        </figure></li>`;
+    // TODO removes the first element in the array
+    if (recentlyViewed.length > 5) {
+        recentlyViewed.shift();
+    }
+
+    let displayRecent = "";
+    recentlyViewed.forEach((item) => {
+        displayRecent += `<li><figure class="recent-thumbnail" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}" data-thumb="${item.thumb}" data-full="${item.full}">
+                <img id="recent-img" src="${item.thumb}" alt="${item.title}"/>
+                <figcaption id ="fig-pic">${item.title} Date taken: ${item.date}</figcaption>
+            </figure></li>`;
     });
     $('.nav-list-aside').html(displayRecent);
+
+    $('.recent-thumbnail').each(function () {
+        //TODO event handler for clicking the modal, used for each loop to pass modal properties
+        $(this).click(clickToModal);
+    });
 }
+
 
 

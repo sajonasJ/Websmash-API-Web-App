@@ -5,7 +5,22 @@
         background-color: rgb(218, 93, 93);
     }
 
+    .column {
+        flex: 50%;
+        max-width: 100%;
+    }
 
+    #destination-container {
+        display: none;
+    }
+
+    main {
+        flex-direction: row;
+    }
+
+    .nav-list-aside {
+        flex-direction: column-reverse;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -14,10 +29,32 @@
     * {
         background-color: rgb(62, 214, 112);
     }
+
+    .column {
+        flex: 25%;
+        /* max-width: 25%; */
+        /* padding: 0 4px; */
+    }
+
+    #destination-container {
+        display: flex;
+    }
+
+    .nav-list-aside {
+        flex-direction: column-reverse;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
     * {
         background-color: rgb(1, 1, 1);
+    }
+
+    #destination-container {
+        display: flex;
+    }
+
+    .nav-list-aside {
+        flex-direction: column-reverse;
     }
 }

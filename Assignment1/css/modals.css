@@ -17,7 +17,8 @@
   
   #modal-content {
     width: 70%;
-    height: auto;
+    /* max-height: 80%; */
+    height:auto;
   }
   
   #modal-caption{
