@@ -47,7 +47,6 @@ function getSizes(photoObj) {
         photoObj.full = data.sizes.size[XL].source;
         if (messageLength === messageRecieved) {
             // TODO IT COUNTS ITERATION BEFORE DISPLAYING PHOTO
-            // !Display photos
             showImage(photos);
         }
     });
@@ -56,28 +55,35 @@ function getSizes(photoObj) {
 function getDestination(data) {
     //TODO DISPLAY NAVIGATION IMG LINKS
     let displayList = "";
+    let burgerDisplay = "";
     let destination = data.destination;
     destination.forEach((destination) => {
         // TODO APPEND TO DISPLAYLIST THE JSON FILEOBJECT
         displayList += `<li><figure class = destination-figure><img class="nav-img" data-url="${destination.url}" src="${destination.file}" alt="${destination.alt}">
         <figcaption class="nav-caption">${destination.name}</figcaption></figure></li>`;
+        burgerDisplay += `<li><figure class = destination-figure><img class="nav-img" data-url="${destination.url}" src="${destination.file}" alt="${destination.alt}">
+        <figcaption class="nav-caption">${destination.name}</figcaption></figure></li>`;
     });
     $('#destination-list').html(displayList);
+    $('#burger-list').html(burgerDisplay);
 
     $('.nav-img').each(function () {
-        $(this).click(() => {
-            // TODO CLICK EVENT FOR EACH IMAGELINKS, REMOVE VIDEO, RESET ARRAY, PASS URL OF API TO FETCH
-            $('#video').remove();
-            photos = []
-            let urLink = $(this).data('url')
-            fetch(urLink).then((response) => {
-                return response.json();
-            }).then((data) => {
-                fetchPhoto(data);
-            }).catch((error) => {
-                alert(error);
-            });
-        });
+        $(this).click(clickDestinations);
+    });
+}
+
+// TODO CLICK EVENT FOR EACH IMAGELINKS, REMOVE VIDEO, RESET ARRAY, PASS URL OF API TO FETCH
+$('.sidenav').click(clickDestinations);
+function clickDestinations() {
+    $('#video').remove();
+    photos = []
+    let urLink = $(this).data('url')
+    fetch(urLink).then((response) => {
+        return response.json();
+    }).then((data) => {
+        fetchPhoto(data);
+    }).catch((error) => {
+        alert(error);
     });
 }
 
@@ -91,8 +97,7 @@ function showImage(data) {
         <figure class="thumbnail" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}" data-thumb="${item.thumb}" data-full="${item.full}">
            <div class ="div-img"> <img class="thumbnail-img" class="column" src="${item.file}" alt="${item.title}"/></div>
             <figcaption id ="thumbnail-caption">"${item.title}"</figcaption>
-        </figure>
-    `;
+        </figure>`;
         if (column % 4 === 0) {
             displayImages += '</div><div class="grid row">';
         }
@@ -112,9 +117,9 @@ function clickToModal() {
         $('#modal-content').attr('src', "");
         $('#modal-content').attr('src', $(this).attr('data-full'));
         $('#modal-caption').text($(this).attr('data-text'));
-        $('.view-list').css('background-color','transparent');
-        $('.view-list').css('height','auto');
-        $('.view-list').css('box-shadow','none');
+        $('.view-list').css('background-color', 'transparent');
+        $('.view-list').css('height', 'auto');
+        $('.view-list').css('box-shadow', 'none');
         let viewImage = {
             title: $(this).attr('data-text'),
             thumb: $(this).attr('data-thumb'),
@@ -160,5 +165,10 @@ function viewRecent(data) {
     });
 }
 
+function openNav() {
+    $("#mySidenav").css("width", "250px");
+}
 
-
+function closeNav() {
+    $("#mySidenav").css("width", "0");
+}

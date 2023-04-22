@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="../css/thumbnail.css" />
     <link rel="stylesheet" href="../css/navigation.css" />
     <link rel="stylesheet" href="../css/query.css" />
+    <link rel="stylesheet" href="../css/icon.css" />
     <link rel="stylesheet" href="../css/modals.css" />
+
 
     <title>Queensland Tourism Destinations</title>
 </head>
@@ -35,7 +37,16 @@
     <!-- categories -->
     <div id="max-container" class="responsive">
         <div id="destination-h2">
-            <h2>Destinations</h2>
+            <div id="mySidenav" class="sidenav">
+                <span class="closebtn" onclick="closeNav()">&times;</span>
+                <div id="burger-list"></div>
+            </div>
+            <div class="burger" onclick="openNav() ">
+                <div class="topbread"></div>
+                <div class="patty"></div>
+                <div class="bottombread"></div>
+            </div>
+            <h1>Destinations</h1>
         </div>
         <main>
             <nav id="destination-container">
@@ -45,11 +56,11 @@
             </nav>
             <!-- thumbnails -->
             <section id="thumbnail-container">
-                <!-- <iframe
+                <iframe
                     src="https://www.youtube.com/embed/videoseries?list=PLrLahHH8bSsxAVgS5IMtbFCYv_qTgVCCY&loop=1&autoplay=1&mute=1"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe> -->
+                    allowfullscreen></iframe>
             </section>
             <!-- recent view list -->
             <aside class="view-list">

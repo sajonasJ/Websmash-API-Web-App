@@ -1,0 +1,73 @@
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+.closebtn{
+    background-color: transparent;
+    color: #f1f1f1;
+    font-size: 36px;
+    /* padding: 4px; */
+    
+}
+.closebtn:hover{
+    transform: scale(1.5);
+    transition: 0.5s;
+    background-color:  #f1f1f1;
+    border-radius: 300px;
+    color: black;
+}
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+    transform: scale(1.1);
+     background-color: #f1f1f1;
+     color:black
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    /* margin-left: 50px; */
+  }
+
+
+/* ICON */
+
+  .burger {
+    /* order: -1; */
+    /* display: inline-block; */
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    /* left: 0; */
+    /* margin-right: auto; */
+    
+  }
+  
+  .topbread, .patty, .bottombread {
+    width: 35px;
+    height: 5px;
+    background-color: #f1f1f1;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
