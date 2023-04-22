@@ -13,15 +13,6 @@
     gap:.5em;
     /* padding-left: .5em; */
 }
-#destination-h2 {
-    text-align: center;
-    position: sticky;
-    top: 0px;
-    padding: 1rem;
-    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.25);
-    background-color: black;
-    z-index: 3;
-}
 .nav-img {
     display: flex;
     height: 100%;
