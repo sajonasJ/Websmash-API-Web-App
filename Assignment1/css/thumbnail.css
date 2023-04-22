@@ -1,0 +1,83 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 10px;
+    gap: 1em;
+}
+
+.grid>* {
+    flex: 1 1 15em;
+}
+
+#thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-grow: 1; */
+    /* padding-top: .5em; */
+    gap: 1em;
+    /* padding; */
+}
+
+.thumbnail {
+    border-radius: 15px;
+    display: flex;
+    /* flex: 100%; */
+    position: relative;
+    /* max-width: 100%; */
+    /* margin-top: 8px;  */
+    /* vertical-align: middle; */
+    /* width: 100%; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    justify-content: center;
+    overflow: hidden;
+    /* text-align: center; */
+    background-color: #f3f2f2;
+    /* flex-direction:row ; */
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.25);
+}
+
+.thumbnail-img {
+    /* height: 100%;
+    width: 100%; */
+    transform: scale(4);
+}
+
+.thumbnail-img:hover {
+    transform: scale(1);
+    transition: .5s ease;
+}
+
+.div-img {
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+#thumbnail-caption {
+    display: none;
+    font-size: 1rem;
+    position: absolute;
+    /* bottom: 0; */
+    /* At the bottom. Use top:0 to append it to the top */
+    /* background: rgb(0, 0, 0); */
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    /* Grey text */
+    /* width: 100%; */
+    bottom: 0px;
+    /* right: 20px; */
+    color: white;
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    /* padding: 20px;  */
+
+}
+.div-img:hover + #thumbnail-caption{
+    display: block;
+}

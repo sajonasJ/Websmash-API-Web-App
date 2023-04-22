@@ -24,6 +24,7 @@
   #modal-caption{
     color:rgb(224, 223, 223);
     font-size:2rem;
+    max-width: 80%;
   }
   
   #modal-container {

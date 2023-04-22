@@ -11,88 +11,40 @@ main {
     /* flex-wrap: wrap; */
     justify-content: space-between;
     flex-direction: column;
+    padding: .5em;
+    gap:.5em;
+  
 }
 
-/*! for testing only */
-.destination-figure {
-    padding-top: 5px;
-    border: solid black;
-    display: flex;
-    flex-direction: column;
-    height: 120px;
-    width: 100%;
+main> * {
+    flex:1 1 100%;
 }
-
-
-
+main>*:nth-child(1){
+    flex:1 1 20%
+}
+main>*:nth-child(2){
+    flex:1 1 50%
+}
+main>*:nth-child(3){
+    flex:1 1 20%
+}
 
 figcaption:hover {
     cursor: pointer;
 }
-
-#destination-container {
-    display: none;
-    /* flex-grow: 1; */
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 0;
-    padding-top: .5em;
-}
-
-#destination-list {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-}
-
-.nav-img {
-    height: 100px;
-    width: 200px;
-    border-radius: 30px;
-    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.25);
-    transition: .5s ease;
-    z-index: 1;
-}
-
-.nav-img:hover {
-    cursor: pointer;
-    opacity: 0.5;
-    z-index: 1;
-
-}
-
-.fig-links {
-    transform: translateY(-70px);
-    text-shadow: 2px 2px 4px #ffffff, -2px -2px 4px #ffffff;
-    font-size: 1.5rem;
-    transition: .5s ease;
-    z-index: 2;
-}
-
-.fig-links:hover {
-    opacity: 1;
-    z-index: 2;
-}
-
-.fig-pic {
-    font-size: 2rem;
-}
-
-.scenery:hover {
-    cursor: pointer;
+figure:hover{
+cursor: pointer;
 }
 
 a {
     text-decoration: none;
     background-color: transparent;
 }
-
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
 header {
     background-color: rgb(39, 37, 37);
     width: 100%;
@@ -103,23 +55,12 @@ header {
     flex-direction: column;
     justify-content: space-between;
 }
-
 #title {
     background: linear-gradient(90deg, rgba(2, 2, 2, 1) 0%, rgba(121, 9, 101, 1) 48%, rgba(3, 53, 155, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
-}
-
-#destination-h2 {
-    text-align: center;
-    position: sticky;
-    top: 0px;
-    padding: 1rem;
-    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.25);
-    background-color: black;
-    z-index: 3;
 }
 
 figcaption {
@@ -132,21 +73,6 @@ figcaption {
     align-self: center;
     pointer-events: none;
     justify-content: center;
-}
-
-.nav-list {
-    border: solid 1px black;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-#thumbnail-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding-top: .5em;
 }
 
 footer {
@@ -183,6 +109,7 @@ h1 {
 h2 {
     color: rgb(209, 217, 94);
     background: black;
+    text-align: center;
 }
 
 iframe {
@@ -191,97 +118,20 @@ iframe {
     height: 54vh;
     box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, .25);
 }
-
-#modal-close {
-    position: absolute;
-    top: 15px;
-    right: 30px;
-    color: rgb(213, 211, 211);
-    z-index: 11;
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-#modal-close:hover {
-    cursor: pointer;
-    scale: 1.1;
-    transition-duration: 0.2s;
-}
-
-#modal-content {
-    width: auto;
-    height: 70%;
-}
-
-#modal-caption {
-    color: rgb(224, 223, 223);
-    font-size: 2rem;
-}
-
-#modal-container {
-    display: none;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 12;
-}
-
-#view-list {
-    display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    flex-direction: column;
-    max-width: 100%;
-    padding-top: .5em;
-}
-
-.nav-list-aside {
-    display: flex;
-    flex-direction: row-reverse;
-    list-style: none;
-    justify-content: flex-end;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
-
-/* Create four equal columns that sits next to each other */
-
-.scenery {
-    flex: 100%;
-    /* max-width: 100%; */
-    /* margin-top: 8px;  */
-    vertical-align: middle;
-    width: 100%;
-    /* display: flex; */
-    /* flex-direction: column;
-   justify-content: center; */
-    text-align: center;
-}
-
 .logo {
     display: flex;
     justify-content: center;
     background-color: transparent;
 }
-#logo{
+#logo {
     background-color: transparent;
     transform: scale(1.3);
 }
 
-h2{
-    text-align: center;
-}
 
-.recent-thumbnail{
-    max-width: 20vw;
-}
+
+
+
+
+
+

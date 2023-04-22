@@ -60,7 +60,7 @@ function getDestination(data) {
     destination.forEach((destination) => {
         // TODO APPEND TO DISPLAYLIST THE JSON FILEOBJECT
         displayList += `<li><figure class = destination-figure><img class="nav-img" data-url="${destination.url}" src="${destination.file}" alt="${destination.alt}">
-        <figcaption class="fig-links">${destination.name}</figcaption></figure></li>`;
+        <figcaption class="nav-caption">${destination.name}</figcaption></figure></li>`;
     });
     $('#destination-list').html(displayList);
 
@@ -88,9 +88,9 @@ function showImage(data) {
     data.forEach((item) => {
         // TODO PASS FETCHED API DATA TO DISPLAY PHOTOS
         displayImages += `
-        <figure class="scenery column" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}" data-thumb="${item.thumb}" data-full="${item.full}">
-            <img id="api-img" class="column" src="${item.file}" alt="${item.title}"/>
-            <figcaption id ="fig-pic">"${item.title}"</figcaption>
+        <figure class="thumbnail" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}" data-thumb="${item.thumb}" data-full="${item.full}">
+           <div class ="div-img"> <img class="thumbnail-img" class="column" src="${item.file}" alt="${item.title}"/></div>
+            <figcaption id ="thumbnail-caption">"${item.title}"</figcaption>
         </figure>
     `;
         if (column % 4 === 0) {
@@ -101,7 +101,7 @@ function showImage(data) {
 
     displayImages += '</div>';
     $('#thumbnail-container').html(displayImages);
-    $('.scenery').each(function () {
+    $('.thumbnail').each(function () {
         //TODO event handler for clicking the modal, used for each loop to pass modal properties
         $(this).click(clickToModal);
     });
@@ -112,6 +112,9 @@ function clickToModal() {
         $('#modal-content').attr('src', "");
         $('#modal-content').attr('src', $(this).attr('data-full'));
         $('#modal-caption').text($(this).attr('data-text'));
+        $('.view-list').css('background-color','transparent');
+        $('.view-list').css('height','auto');
+        $('.view-list').css('box-shadow','none');
         let viewImage = {
             title: $(this).attr('data-text'),
             thumb: $(this).attr('data-thumb'),
@@ -146,7 +149,7 @@ function viewRecent(data) {
     recentlyViewed.forEach((item) => {
         displayRecent += `<li><figure class="recent-thumbnail" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}" data-thumb="${item.thumb}" data-full="${item.full}">
                 <img id="recent-img" src="${item.thumb}" alt="${item.title}"/>
-                <figcaption id ="fig-pic">${item.title} Date taken: ${item.date}</figcaption>
+                <figcaption class ="recently-caption">${item.title}<br> Date taken: ${item.date}</figcaption>
             </figure></li>`;
     });
     $('.nav-list-aside').html(displayRecent);
