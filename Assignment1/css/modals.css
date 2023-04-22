@@ -1,4 +1,3 @@
-/* MODALS */
 #modal-close {
     position: absolute;
     top: 15px;
@@ -17,7 +16,6 @@
   
   #modal-content {
     width: 70%;
-    /* max-height: 80%; */
     height:auto;
   }
   

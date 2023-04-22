@@ -38,7 +38,6 @@
         justify-content: center;
         align-items: center;
     }
-
 }
 
 @media screen and (min-width: 1024px) {
@@ -50,8 +49,6 @@
 
     .thumbnail {
         flex: 25%;
-        /* max-width: 25%; */
-        /* padding: 0 4px; */
     }
 
     #destination-container {
@@ -65,6 +62,7 @@
     .burger {
         display: none;
     }
+
     #thumbnail-container {
         justify-content: flex-start;
         align-items: flex-start;

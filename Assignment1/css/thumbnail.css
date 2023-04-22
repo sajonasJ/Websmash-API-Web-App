@@ -12,10 +12,7 @@
 #thumbnail-container {
     display: flex;
     flex-direction: column;
-    /* flex-grow: 1; */
-    /* padding-top: .5em; */
     gap: 1em;
-    /* padding; */
     justify-content: center;
     align-items: center;
 }
@@ -23,20 +20,11 @@
 .thumbnail {
     border-radius: 15px;
     display: flex;
-    /* flex: 100%; */
     position: relative;
-    /* max-width: 100%; */
-    /* margin-top: 8px;  */
-    /* vertical-align: middle; */
-    /* width: 100%; */
-    /* display: flex; */
-    /* flex-direction: column; */
     justify-content: center;
     overflow: hidden;
-    /* text-align: center; */
     background-color: #f3f2f2;
     width: fit-content;
-    /* flex-direction:row ; */
     box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.5);
 }
 
@@ -64,23 +52,12 @@
     display: none;
     font-size: 1rem;
     position: absolute;
-    /* bottom: 0; */
-    /* At the bottom. Use top:0 to append it to the top */
-    /* background: rgb(0, 0, 0); */
     background: rgba(0, 0, 0, .5);
     width: auto;
-    /* Black background with 0.5 opacity */
     color: #f1f1f1;
-    /* Grey text */
-    /* width: 100%; */
     bottom: 0px;
-    /* right: 20px; */
     color: white;
-    /* padding-left: 20px; */
-    /* padding-right: 20px; */
-    /* padding: 20px;  */
     font-family: 'Merriweather', serif;
-
 }
 .div-img:hover + #thumbnail-caption{
     display: block;

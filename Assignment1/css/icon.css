@@ -11,7 +11,7 @@
     padding-top: 60px;
   }
   
-  .sidenav a {
+  .sidenav a, h3 {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -23,8 +23,6 @@
     background-color: transparent;
     color: #f1f1f1;
     font-size: 36px;
-    /* padding: 4px; */
-    
 }
 .closebtn:hover{
     transform: scale(1.5);
@@ -34,7 +32,7 @@
     color: black;
 }
   
-  .sidenav a:hover {
+  .sidenav a, h3:hover {
     color: #f1f1f1;
     transform: scale(1.1);
      background-color: #f1f1f1;
@@ -46,21 +44,12 @@
     top: 0;
     right: 25px;
     font-size: 36px;
-    /* margin-left: 50px; */
   }
 
-
-/* ICON */
-
   .burger {
-    /* order: -1; */
-    /* display: inline-block; */
     cursor: pointer;
     background-color: transparent;
     position: relative;
-    /* left: 0; */
-    /* margin-right: auto; */
-    
   }
   
   .topbread, .patty, .bottombread {
@@ -70,4 +59,3 @@
     margin: 6px 0;
     transition: 0.4s;
   }
-  

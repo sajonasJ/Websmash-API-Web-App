@@ -25,9 +25,7 @@ font-family: 'Roboto', sans-serif;
     flex-direction: row-reverse;
     list-style: none;
     justify-content: flex-end;
-    /* align-items: flex-start; */
     gap: 1em;
-
 }
 .view-list {
     display: flex;
@@ -38,9 +36,6 @@ font-family: 'Roboto', sans-serif;
     gap: 1em;
     height: 300px;
     background-color:white;
-    /* padding:5rem; */
     border-radius: 15px;
-    /* padding-top: .5em; */
-    /* padding-right: .5em; */
     box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.25);
 }

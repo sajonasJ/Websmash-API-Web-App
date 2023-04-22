@@ -61,8 +61,7 @@ function getDestination(data) {
         // TODO APPEND TO DISPLAYLIST THE JSON FILEOBJECT
         displayList += `<li><figure class = destination-figure><img class="nav-img" data-url="${destination.url}" src="${destination.file}" alt="${destination.alt}">
         <figcaption class="nav-caption">${destination.name}</figcaption></figure></li>`;
-        burgerDisplay += `<li><figure class = destination-figure><img class="nav-img" data-url="${destination.url}" src="${destination.file}" alt="${destination.alt}">
-        <figcaption class="nav-caption">${destination.name}</figcaption></figure></li>`;
+        burgerDisplay += `<li><h3 data-url="${destination.url}" src="${destination.file}" >${destination.name}</h3></li>`;
     });
     $('#destination-list').html(displayList);
     $('#burger-list').html(burgerDisplay);
@@ -70,6 +69,10 @@ function getDestination(data) {
     $('.nav-img').each(function () {
         $(this).click(clickDestinations);
     });
+    $('h3').each(function () {
+        $(this).click(clickDestinations);
+    });
+
 }
 
 // TODO CLICK EVENT FOR EACH IMAGELINKS, REMOVE VIDEO, RESET ARRAY, PASS URL OF API TO FETCH
