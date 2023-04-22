@@ -17,6 +17,8 @@
     background-color: #f1f1f1;
     box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.25);
     width: 100%;
+
+font-family: 'Roboto', sans-serif;
 }
 .nav-list-aside {
     display: flex;
