@@ -169,7 +169,7 @@ function viewRecent(data) {
 }
 
 function openNav() {
-    $("#mySidenav").css("width", "250px");
+    $("#mySidenav").css("width", "350px");
 }
 
 function closeNav() {

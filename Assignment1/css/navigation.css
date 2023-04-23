@@ -15,7 +15,9 @@
     height: 100%;
     max-width: 200px;
     border-radius: 30px;
-    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.2); */
+    background-color: transparent;
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
     z-index: 1;
 }
 .nav-img:hover {
@@ -41,6 +43,9 @@
     overflow: hidden;
     justify-content: center;
     align-items: center;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    background-color: transparent;
+    border-radius: 30px;
 }
 .nav-list {
     /* border: solid 1px black; */
