@@ -1,86 +1,49 @@
-// Global Variables
-let photos = [];
-let recentlyViewed = [];
-const API_KEY = 'dc140afe3fd3a251c2fdf9dcd835be5c';
-const GETSIZES = 'https://www.flickr.com/services/rest/?method=flickr.photos.getSizes&format=json&nojsoncallback=1&api_key=' + API_KEY + '&photo_id=';
-
-let messageLength = 0;
-let messageRecieved = 0;
 // Start - initialisation
+// TODO # 1
 $(() => {
-    $.get('../json/imgdata.json', (jsonData) => {
-        //TODO GET JSON DATA
+    $.get('../json/imgdata.json', (jsonData) => {                //FETCH JSON DATA
         getDestination(jsonData);
     });
     $('#modal-close').click(() => {
-        //TODO SET MODAL TO NONE
-        $('#modal-container').css('display', 'none');
-    })
+        $('#modal-container').css('display', 'none');           //HIDE MODAL
+    });
+    $('.nav-toggle').click(toggleNav);                          //StartTOGGLE
 });
 
-function fetchPhoto(data) {
-    //TODO CONVERT RETURNED API DATA TO USABLE OBJECT
-    messageLength = data.photos.photo.length;
-    let photo = data.photos.photo
-    photo.forEach((photo) => {
-        // TODO SPLIT PHOTODATE
-        let photoDate = photo.datetaken.split(' ')
-        let photoObject = { 'id': photo.id, 'title': photo.title, 'date': photoDate[0] };
-        photos.push(photoObject);
-        getSizes(photoObject);
-    });
-}
-
-function getSizes(photoObj) {
-    // TODO USE THE DATA OBJECT AND GET SIZES FROM API
-    let getSizeReq = GETSIZES + photoObj.id;
-    messageRecieved = 0;
-
-    $.get(getSizeReq, (data) => {
-        // TODO THIS IS INSIDE A FOR LOOP FROM fetchphoto counter to check if all photos can be displayed
-        messageRecieved++;
-        const THUMB = 1;
-        const XL = data.sizes.size.length - 1;
-        const MEDIUM = 5;
-        photoObj.thumb = data.sizes.size[THUMB].source
-        photoObj.file = data.sizes.size[MEDIUM].source;
-        photoObj.full = data.sizes.size[XL].source;
-        if (messageLength === messageRecieved) {
-            // TODO IT COUNTS ITERATION BEFORE DISPLAYING PHOTO
-            showImage(photos);
-        }
-    });
-}
-
-function getDestination(data) {
-    //TODO DISPLAY NAVIGATION IMG LINKS
-    let displayList = "";
-    let burgerDisplay = "";
-    let destination = data.destination;
+// TODO # 2
+function getDestination(data) {                                //USE JSONDATA TO DISPLAY NAVIGATION-IMAGE AND POP-UP DISPLAY
+    let displayList = "", burgerDisplay = "";
+    const destination = data.destination;
     destination.forEach((destination) => {
-        // TODO APPEND TO DISPLAYLIST THE JSON FILEOBJECT
-        displayList += `<li><figure class = destination-figure><img class="nav-img" data-url="${destination.url}" src="${destination.file}" alt="${destination.alt}">
-        <figcaption class="nav-caption">${destination.name}</figcaption></figure></li>`;
-        burgerDisplay += `<li><h3 data-url="${destination.url}" src="${destination.file}" >${destination.name}</h3></li>`;
-    });
-    $('#destination-list').html(displayList);
-    $('#burger-list').html(burgerDisplay);
+        displayList += `<li><figure class = destination-figure>
+            <img class="nav-img"
+            data-lat="${destination.lat}"
+            data-lng="${destination.lng}"
+            data-url="${destination.url}"
+            src="${destination.file}"
+            alt="${destination.alt}">
+            <figcaption class="nav-caption">${destination.name}</figcaption></figure></li>`;
 
-    $('.nav-img').each(function () {
+        burgerDisplay += `<li><h3
+            data-url="${destination.url}"
+            src="${destination.file}">
+            ${destination.name}</h3></li>`;
+    });
+    $('#destination-list').html(displayList);                 //DISPLAY NAVIGATION-IMAGE
+    $('#burger-list').html(burgerDisplay);                    //DISPLAY LINKS TO SIDE MENU
+
+    $('.nav-img,h3').each(function () {                        //?TRIGGERS FETCH TO GET DATA FROM API
         $(this).click(clickDestinations);
+        // !$(this).click(getLocationKey);                    NOT WORKING CAUSE OF CORS MISSING
     });
-    $('h3').each(function () {
-        $(this).click(clickDestinations);
-    });
+};
 
-}
-
-// TODO CLICK EVENT FOR EACH IMAGELINKS, REMOVE VIDEO, RESET ARRAY, PASS URL OF API TO FETCH
-$('.sidenav').click(clickDestinations);
-function clickDestinations() {
+// TODO #3
+function clickDestinations() {                               //FETCH API DATA SPECIFICALLY TO GET ID
     $('#video').remove();
-    photos = []
+    photos = [];
     let urLink = $(this).data('url')
+
     fetch(urLink).then((response) => {
         return response.json();
     }).then((data) => {
@@ -88,33 +51,77 @@ function clickDestinations() {
     }).catch((error) => {
         alert(error);
     });
-}
+};
 
+// TODO #4
+function fetchPhoto(data) {                                             //API DATA PUT INTO OBJECT
+    messageLength = data.photos.photo.length;
+    const photo = data.photos.photo;
+    photo.forEach((photo) => {
+        let photoDate = photo.datetaken.split(' ');                      //SPLIT PHOTODATE STRING TO TWO
+        let photoObject = {
+            'id': photo.id,
+            'title': photo.title,
+            'date': photoDate[0]
+        };
+        photos.push(photoObject);                                       //PUT API DATA TO PHOTOS ARRAY
+        getSizes(photoObject);                                          //FUNC TO GET ACTUAL IMAGE SIZES
+    });
+};
+
+// TODO #5
+function getSizes(photoObj) {                                           // FETCH IMAGES AND APPEND TO ARRAY
+    let getSizeReq = GETSIZES + photoObj.id;                             //APPEND DATA:ID TO URL
+    messageRecieved = 0;
+
+    $.get(getSizeReq, (data) => {                                      //FETCH SIZES
+        messageRecieved++;
+        const THUMB = 1;
+        const XL = data.sizes.size.length - 1;
+        const MEDIUM = 5;
+        photoObj.thumb = data.sizes.size[THUMB].source;                 //append images sizes to photos array
+        photoObj.file = data.sizes.size[MEDIUM].source;
+        photoObj.full = data.sizes.size[XL].source;
+        if (messageLength === messageRecieved) {
+            showImage(photos);                                          //?run show image
+        };
+    });
+};
+
+// TODO #6
 function showImage(data) {
-    // TODO DISPLAY PHOTOS ADD IMAGE DATA,MED SIZE AND FULL SIZE, TITLE AND DATE
-    let displayImages = '<div class="grid row">';
-    let column = 1;
-    data.forEach((item) => {
-        // TODO PASS FETCHED API DATA TO DISPLAY PHOTOS
+    let displayImages = '<div class="grid row">';           //IMPLEMENTED ADDITIONAL ROWS TO GET RESPONSIVE PHOTOS INSIDE CONTAINER
+    let column = 1;                                         //EVERY 4 IMAGE A MAKE A CONTAINER
+    data.forEach((item) => {                                //PASS DATA INSIDE THE HTML FIGURE
         displayImages += `
-        <figure class="thumbnail" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}" data-thumb="${item.thumb}" data-full="${item.full}">
-           <div class ="div-img"> <img class="thumbnail-img" class="column" src="${item.file}" alt="${item.title}"/></div>
+        <figure class="thumbnail"
+        data-src="${item.file}"
+        data-date="${item.date}"
+        data-text="${item.title}"
+        data-thumb="${item.thumb}"
+        data-full="${item.full}">
+           <div class ="div-img">
+           <img class="thumbnail-img"
+           class="column"
+           src="${item.file}"
+           alt="${item.title}"/></div>
             <figcaption id ="thumbnail-caption">"${item.title}"</figcaption>
         </figure>`;
         if (column % 4 === 0) {
             displayImages += '</div><div class="grid row">';
         }
         column++;
-    });
+    })
+    displayImages += '</div>';                                  //CLOSE THE CONTAINER
 
-    displayImages += '</div>';
-    $('#thumbnail-container').html(displayImages);
-    $('.thumbnail').each(function () {
-        //TODO event handler for clicking the modal, used for each loop to pass modal properties
+    $('#thumbnail-container').html(displayImages);              //DISPLAY THE ARRAY INSIDE THUMBNAIL CONTAINER
+    $('.thumbnail').each(function () {                          //?ADD FUNC TO CLICK THUMBNAILS
         $(this).click(clickToModal);
     });
 }
-function clickToModal() {
+
+// TODO #7
+function clickToModal() {                                       //OPENS MODAL AND PASS DATA FROM FIGURES TO ANOTHER ARRAY
     $(this).click(() => {
         $('#modal-container').css('display', 'flex');
         $('#modal-content').attr('src', "");
@@ -123,55 +130,70 @@ function clickToModal() {
         $('.view-list').css('background-color', 'transparent');
         $('.view-list').css('height', 'auto');
         $('.view-list').css('box-shadow', 'none');
-        let viewImage = {
+        let viewImage = {                                           //temp object that is passed to array RECENTLY VIEWED
             title: $(this).attr('data-text'),
             thumb: $(this).attr('data-thumb'),
             file: $(this).attr('data-src'),
             date: $(this).attr('data-date'),
             full: $(this).attr('data-full')
-        }
+        };
         recentlyViewed.push(viewImage);
-        // TODO display the recentlyviewed using the click event
-        viewRecent(recentlyViewed)
-    })
+        viewRecent(recentlyViewed);
+    });
 };
 
-function viewRecent(data) {
-    // TODO display recent data taken from modal click event
-    data.forEach((item) => {
-        // TODO it filters and remove an object if the object is property is the same as the incoming object property
-        // TODO viewed is placeholderobject with placeholder.file property. 
-        // TODO in other words if file property is equal it's going to be included in a new array.
-        // TODO anon function checks if the property is not equal if not equal do nothing, if equal filter the object.
+// TODO #8
+function viewRecent(data) {                                          //FILTER THE ARRAY IF IT CONTAINS THE OBJECT THEN REMOVES IT
+    data.forEach((item) => {                                         //IF NOT THE SAME IT STAYS IN THE ARRAY
         recentlyViewed = recentlyViewed.filter((viewed) => viewed.file !== item.file);
-        // TODO then pushes it
         recentlyViewed.push(item);
     });
 
-    // TODO removes the first element in the array
-    if (recentlyViewed.length > 5) {
-        recentlyViewed.shift();
-    }
+    if (recentlyViewed.length > 5) { recentlyViewed.shift(); };        // IF MORE THAN 5 REMOVE THE 1ST INDEX OF ARRAY
 
     let displayRecent = "";
-    recentlyViewed.forEach((item) => {
-        displayRecent += `<li><figure class="recent-thumbnail" data-src="${item.file}" data-date="${item.date}" data-text="${item.title}" data-thumb="${item.thumb}" data-full="${item.full}">
-                <img id="recent-img" src="${item.thumb}" alt="${item.title}"/>
-                <figcaption class ="recently-caption">${item.title}<br> Date taken: ${item.date}</figcaption>
+    recentlyViewed.forEach((item) => {                               // PASS DATA USING HTML TO BE USED IN OTHER FUNC
+        displayRecent += `<li>
+        <figure class="recent-thumbnail"
+        data-src="${item.file}"
+        data-date="${item.date}"
+        data-text="${item.title}"
+        data-thumb="${item.thumb}"
+        data-full="${item.full}">
+            <img id="recent-img"
+            src="${item.thumb}"
+            alt="${item.title}"/>
+            <figcaption
+            class="recently-caption">"${item.title}"
+            <br>
+            Date taken: ${item.date}</figcaption>
             </figure></li>`;
     });
-    $('.nav-list-aside').html(displayRecent);
 
-    $('.recent-thumbnail').each(function () {
-        //TODO event handler for clicking the modal, used for each loop to pass modal properties
+    $('.nav-list-aside').html(displayRecent);                        //DISPLAY RECENTLY VIEWED
+
+    $('.recent-thumbnail').each(function () {                        //?USE CLICKTOMODAL TO EACH RECENT-THUMBNAIL
         $(this).click(clickToModal);
     });
 }
 
-function openNav() {
-    $("#mySidenav").css("width", "350px");
-}
+// TODO --AVAILABLE AT THE START--
+const toggleNav = () => $("#mySidenav").toggleClass("open-nav");     // ANON FUNC TO MAKE THE TOGGLE ONE LINER
 
-function closeNav() {
-    $("#mySidenav").css("width", "0");
-}
+
+
+// !CORS MISSING ALLOW ORIGIN
+// function getLocationKey(){
+// widgets=[]
+// let lat = $(this).data('lat');
+// let lng = $(this).data('lng');
+// console.log(lat)
+// weatherUrl = `${GETKEYS}q=${lat}%2${lng}`
+// fetch(weatherUrl).then((response) => {
+//     return response.json();
+// }).then((data) => {
+//     fetchPhoto(data);
+// }).catch((error) => {
+//     alert(error);
+// });
+// }

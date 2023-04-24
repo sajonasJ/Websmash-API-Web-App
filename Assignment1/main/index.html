@@ -13,6 +13,7 @@
     <link rel="icon" type="png/jpg" sizes="32x32" href=" ../favicon/favicon.ico" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="../script/variable.js"></script>
     <script src="../script/script.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/recently.css" />
@@ -22,10 +23,6 @@
     <link rel="stylesheet" href="../css/icon.css" />
     <link rel="stylesheet" href="../css/modals.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
- 
-
-
-
 
     <title>Queensland Tourism Destinations</title>
 </head>
@@ -33,19 +30,22 @@
 <body>
     <header>
         <div id="title">
+            <!-- LOGO -->
             <a class="logo" href="../main/index.html">
                 <img id="logo" src="../img/qlds.png" alt="Queensland Logo">
             </a>
         </div>
     </header>
-    <!-- categories -->
+
     <div id="max-container" class="responsive">
+        <!-- burger list -->
         <div id="destination-h2">
             <div id="mySidenav" class="sidenav">
-                <span class="closebtn" onclick="closeNav()">&times;</span>
+                <span class="closebtn nav-toggle">&times;</span>
                 <div id="burger-list"></div>
             </div>
-            <div class="burger" onclick="openNav() ">
+            <!-- burger button  -->
+            <div class="burger nav-toggle">
                 <div class="topbread"></div>
                 <div class="patty"></div>
                 <div class="bottombread"></div>
@@ -53,12 +53,13 @@
             <h1>Destinations</h1>
         </div>
         <main>
+            <!-- navigation container -->
             <nav id="destination-container">
                 <ul class="nav-list" id="destination-list">
                 </ul>
 
             </nav>
-            <!-- thumbnails -->
+            <!-- thumbnail container  -->
             <section id="thumbnail-container">
                 <iframe
                     src="https://www.youtube.com/embed/videoseries?list=PLrLahHH8bSsxAVgS5IMtbFCYv_qTgVCCY&loop=1&autoplay=1&mute=1"
