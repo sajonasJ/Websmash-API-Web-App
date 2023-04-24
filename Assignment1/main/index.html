@@ -60,18 +60,26 @@
 
             </nav>
             <!-- thumbnail container  -->
-            <section id="thumbnail-container">
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLrLahHH8bSsxAVgS5IMtbFCYv_qTgVCCY&loop=1&autoplay=1&mute=1"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-            </section>
+            <div id="mid-container">
+                <section id="thumbnail-container">
+                </section>
+                <div id="iframe-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLrLahHH8bSsxAVgS5IMtbFCYv_qTgVCCY&loop=1&autoplay=1&mute=1"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div id="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
             <!-- recent view list -->
             <aside class="view-list">
                 <h2>Recently Viewed:</h2>
                 <ul class="nav-list-aside">
                 </ul>
+
             </aside>
 
         </main>

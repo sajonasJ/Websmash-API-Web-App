@@ -40,8 +40,12 @@
     }
 
     iframe {
-        width: 65vw;
+        width: 100%;
     }
+
+    #map {
+        width: 100%;
+      }
 }
 
 @media screen and (min-width: 1024px) {
@@ -70,6 +74,9 @@
     #thumbnail-container {
         justify-content: flex-start;
         align-items: flex-start;
+    }
+    .sidenav{
+        display: none;
     }
 }
 

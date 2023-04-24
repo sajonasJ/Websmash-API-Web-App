@@ -17,8 +17,6 @@ function getDestination(data) {                                //USE JSONDATA TO
     destination.forEach((destination) => {
         displayList += `<li><figure class = destination-figure>
             <img class="nav-img"
-            data-lat="${destination.lat}"
-            data-lng="${destination.lng}"
             data-url="${destination.url}"
             src="${destination.file}"
             alt="${destination.alt}">
@@ -34,7 +32,7 @@ function getDestination(data) {                                //USE JSONDATA TO
 
     $('.nav-img,h3').each(function () {                        //?TRIGGERS FETCH TO GET DATA FROM API
         $(this).click(clickDestinations);
-        // !$(this).click(getLocationKey);                    NOT WORKING CAUSE OF CORS MISSING
+        $(this).click(toggleNav);                             //CLOSE SIDENAV
     });
 };
 
@@ -180,20 +178,3 @@ function viewRecent(data) {                                          //FILTER TH
 // TODO --AVAILABLE AT THE START--
 const toggleNav = () => $("#mySidenav").toggleClass("open-nav");     // ANON FUNC TO MAKE THE TOGGLE ONE LINER
 
-
-
-// !CORS MISSING ALLOW ORIGIN
-// function getLocationKey(){
-// widgets=[]
-// let lat = $(this).data('lat');
-// let lng = $(this).data('lng');
-// console.log(lat)
-// weatherUrl = `${GETKEYS}q=${lat}%2${lng}`
-// fetch(weatherUrl).then((response) => {
-//     return response.json();
-// }).then((data) => {
-//     fetchPhoto(data);
-// }).catch((error) => {
-//     alert(error);
-// });
-// }
