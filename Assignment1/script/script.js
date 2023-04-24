@@ -82,7 +82,7 @@ function getSizes(photoObj) {                                           // FETCH
         photoObj.thumb = data.sizes.size[THUMB].source;                 //append images sizes to photos array
         photoObj.file = data.sizes.size[MEDIUM].source;
         photoObj.full = data.sizes.size[XL].source;
-        if (messageLength === messageRecieved) {
+        if (messageLength === messageRecieved) {                         //do not run until all image is recieved
             showImage(photos);                                          //?run show image
         };
     });
