@@ -24,14 +24,20 @@ let messageRecieved = 0;
 
 let map;
 
-// CANNOT CHANGE MAP AND CODE AS IT IS BINDINGS TO A GOOGLE MAP
-async function initMap() {
-    const { Map } = await google.maps.importLibrary("maps");
-
-    map = new Map(document.getElementById("map"), {
-        center: { lat: -27.470125, lng: 153.021072 },
+// CANNOT CHANGE MAP AND CODE AS IT IS BINDINg TO A GOOGLE MAP
+async function initMap(position = { lat: -27.470125, lng: 153.021072 }) {              //used passed position from initMap
+    const { Map } = await google.maps.importLibrary("maps");                       //? importing from library
+    map = new Map(document.getElementById("map"), {                                //displays the map inside the html jquery did not work unless==class of Map
+        center: position,
         zoom: 11,
     });
 }
-
+//TODO #1
+function getMap(){                           // call initMap with position of lat and lng
+    let lat = $(this).data('lat');
+    let lng = $(this).data('lng');
+    let position = {lat, lng};
+    initMap(position);
+};
+//TODO #1
 initMap();

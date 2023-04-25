@@ -18,6 +18,8 @@ function getDestination(data) {                                //USE JSONDATA TO
         displayList += `<li><figure class = destination-figure>
             <img class="nav-img"
             data-url="${destination.url}"
+            data-lat="${destination.lat}"
+            data-lng="${destination.lng}"
             src="${destination.file}"
             alt="${destination.alt}">
             <figcaption class="nav-caption">${destination.name}</figcaption></figure></li>`;
@@ -31,8 +33,10 @@ function getDestination(data) {                                //USE JSONDATA TO
     $('#burger-list').html(burgerDisplay);                    //DISPLAY LINKS TO SIDE MENU
 
     $('.nav-img,h3').each(function () {                        //?TRIGGERS FETCH TO GET DATA FROM API
-        $(this).click(clickDestinations);
-        $(this).click(toggleNav);                             //CLOSE SIDENAV
+        $(this).click(clickDestinations);                       //CLOSE SIDENAV
+        $(this).click(toggleNav);          
+        $(this).click(getMap);               
+        console.log(data)    
     });
 };
 
