@@ -1,9 +1,0 @@
-{
-    "photos":[
-        {"file":"/week3/photos/cityview.jpg", "title":"Bridge", "alternate":"View Overlooking Bridge"},
-        {"file":"/week3/photos/lakeside.jpg", "title":"Lakeside","alternate":"Lakeside Picture"},
-        {"file":"/week3/photos/beijing.jpg", "title":"Beijing","alternate":"Forbidden City"},
-        {"file":"/week3/photos/topview.jpg", "title":"City","alternate":"City Overlook"},
-        {"file":"/week3/photos/beach.jpg", "title":"Beach","alternate":"Beachside View"}
-    ]
-}
