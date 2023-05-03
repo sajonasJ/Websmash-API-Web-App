@@ -1,11 +1,4 @@
-import $ from "jquery";
-import styles from "./css/style.css";
-import query from "./css/query.css";
-import img1 from "./assets/beach.JPG"
-
-
 // boiler plate for the modal and event function with captions
-
 // Global Variables
 let photos = [];
 const API_KEY = 'dc140afe3fd3a251c2fdf9dcd835be5c';
@@ -18,11 +11,10 @@ let mrecieved = 0;
 
 // Jquery Ready
 $(function () {
-    insertHtml();
-    $('#modal-close').on('click', function () {
+    $('#modal-close').click(function () {
         $('#modal-container').css('display', 'none');
-    });
-    
+    })
+
     fetch(INTRSTNG).then(function (response) {
         return response.json();
     }).then(function (data) {
@@ -31,8 +23,7 @@ $(function () {
         alert(error);
     });
 
-    $('#search-btn').on('click', search_handler);
-
+    $('#search-btn').click(search_handler);
 });
 
 // convert photoID and caption into URL
@@ -93,16 +84,3 @@ function search_handler() {
 
     });
 }
-
-export const insertHtml = () => {
-    $('header').html(`<h1>My Outstanding Photo Album</h1>
-    <button id="btn" type="button" class="log">Login</button>`),
-    $('footer').html("<h3>by @Jonas Sajonas</h3>"),
-    $('#nav-container').html(`<h2>Categories:</h2>
-    <a class="cat" href="">Cities</a>
-    <a class="cat" href="">Beaches</a>
-    <a class="cat" href="">Downtown</a>
-    <a class="cat" href="">Amusements</a>
-    <a class="cat" href="">Parks</a>
-    <img src=${img1}>`)
-};
