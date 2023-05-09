@@ -53,11 +53,13 @@ function getSizes(photoObj) {
 
 export function search_handler() {
     let input = $('#search-input').val();
+    view.place.location.push(input)
     photos = []
-    let searchapi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&tags=${input}&per_page=10&format=json&nojsoncallback=1&sort=interestingness-desc`;
+    const searchapi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&tags=${input}&per_page=10&format=json&nojsoncallback=1&sort=interestingness-desc`;
     fetch(searchapi)
         .then(response => response.json())
         .then(data => fetchPhoto(data))
         .catch(error => alert(error));
 
+    app.callHtml();
 }

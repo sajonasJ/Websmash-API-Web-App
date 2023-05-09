@@ -17,3 +17,7 @@ $(function () {
 function flickrReady(photos) {
     view.display(photos);
 }
+
+export function callHtml(){
+    view.insertHtml();
+}

@@ -7,7 +7,7 @@ import hello from "./templates/hello.handlebars";
 import thumbnail from "./templates/thumbnail.handlebars";
 let name = { loggedin: true, first: "Anonymous", last: "User" };                                         //handlebar data
 let temp = hello(name);//handlebar variable
-let location = {
+export let place = {
     title: "Categories:",
     location: [
         "Cities",
@@ -18,9 +18,9 @@ let location = {
     ]
 };
 
-let tempLocate = catergory(location);
-
 export const insertHtml = () => {
+    let tempLocate = catergory(place);
+    console.log(`this is${place.location}`)
     $('header').html(
         `<h1>My Outstanding Photo Album</h1>
         <button id="btn" type="button" class="log">Login</button>`
