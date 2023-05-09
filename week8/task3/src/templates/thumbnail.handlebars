@@ -1,0 +1,9 @@
+{{#each photos}}
+        <figure class="scenery"
+            data-text="{{this.title}}"
+            data-full="{{this.full}}">
+            <img src="{{this.file}}"
+            alt="{{this.title}}" />
+        <figcaption>{{this.title}}</figcaption>
+        </figure>
+{{/each}}
