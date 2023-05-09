@@ -5,9 +5,9 @@ import styles from "./css/style.css";
 import catergory from "./templates/category.handlebars";
 import hello from "./templates/hello.handlebars";
 import thumbnail from "./templates/thumbnail.handlebars";
-let name = { loggedin: true, first: "Anonymous", last: "User" };                                         //handlebar data
+let name = { loggedin: true, first: "Anonymous", last: "User" };    // handlebar if                                      //handlebar data
 let temp = hello(name);//handlebar variable
-export let place = {
+export let place = {                  //for handlebar each
     title: "Categories:",
     location: [
         "Cities",
@@ -30,7 +30,7 @@ export const insertHtml = () => {
     $('#nav-container').html(tempLocate);                                                //handlebar each block location
 };
 
-export function display(data){
+export function display(data){          //made smaller to accomodate handlebar each
     const htmlStr = thumbnail({photos:data})
     $('#thumbnails').html(htmlStr);
     getModal();
