@@ -1,0 +1,14 @@
+
+.h2-footer{
+    display:flex ;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: 0.1s ease-in-out;
+    font-size: 1em;
+    font-family: 'Courgette', cursive;
+
+}
+.h2-footer:hover{
+    cursor: pointer;
+    color: #61DBFB;
+}

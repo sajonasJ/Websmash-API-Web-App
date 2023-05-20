@@ -1,0 +1,19 @@
+.nav-items{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+
+}
+.nav-items > * {
+    font-size: larger;
+    font-family: 'Sigmar', cursive;
+    color: black;
+    text-decoration: none;
+    transition: 0.1s ease-in-out;
+}
+
+.nav-items > *:hover {
+    cursor: pointer;
+    color: #61DBFB;
+    transform: scale(1.1);
+}
