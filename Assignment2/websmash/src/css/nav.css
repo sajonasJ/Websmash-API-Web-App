@@ -1,3 +1,7 @@
+.nav-container{
+    background-color: rgb(247, 247, 247);
+}
+
 .nav-items{
 display: flex;
 flex-direction: row;
