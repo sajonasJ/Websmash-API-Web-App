@@ -4,6 +4,7 @@ import React from 'react';
 import Nav from '../component/nav';
 import Footer from '../component/footer';
 import Rando from '../component/rando';
+import VideoSearch from '../component/pexel';
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+      <h1>My App</h1>
+      <VideoSearch />
+    </div>
       <Footer />
     </div>
   );
