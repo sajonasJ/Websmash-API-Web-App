@@ -1,14 +1,27 @@
-
-.h2-footer{
-    display:flex ;
+.footer {
+    color: whitesmoke;
+    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    transition: 0.1s ease-in-out;
+    align-items: center;
+    background-color: #282c34;
+    height: 7vh;
+    bottom: 0;
+    position: relative;
+}
+
+.h2-footer {
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
     transition: 0.1s ease-in-out;
     font-size: 1em;
     font-family: 'Courgette', cursive;
-
+    align-items: center;
+    background-color: #282c34;
 }
-.h2-footer:hover{
+
+.h2-footer:hover {
     cursor: pointer;
     color: #61DBFB;
 }

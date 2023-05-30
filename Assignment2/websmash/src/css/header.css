@@ -2,9 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    height: 15vmin;
 }
 
-.a-header{
+.a-title{
     text-decoration: none;
 }
 
@@ -13,13 +15,14 @@
     justify-content: center;
     flex-wrap: wrap;
     transition: 0.1s ease-in-out;
-    font-size: 3em;
     font-family: 'Courgette', cursive;
     text-decoration: none;
-    color: black;
-
 }
 .h2-header:hover{
     cursor: pointer;
     color: #61DBFB;
+}
+
+.wbs-logo{
+    width: 20rem;
 }

@@ -1,23 +1,111 @@
-.nav-container{
-    background-color: rgb(247, 247, 247);
+.nav-container {
+  background-color: rgb(247, 247, 247);
 }
 
-.nav-items{
-display: flex;
-flex-direction: row;
-justify-content: space-around;
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
 }
-.nav-items > * {
-    font-size: larger;
-    font-family: 'Sigmar', cursive;
-    color: black;
-    text-decoration: none;
-    transition: 0.1s ease-in-out;
+
+.nav-items>* {
+  font-size: larger;
+  font-family: 'Sigmar', cursive;
+  color: black;
+  text-decoration: none;
+  transition: 0.1s ease-in-out;
 }
 
-.nav-items > *:hover {
-    cursor: pointer;
-    color: #61DBFB;
-    transform: scale(1.1);
+.nav-items>*:hover {
+  cursor: pointer;
+  color: #61DBFB;
+  transform: scale(1.1);
+}
+
+/* Set height of body and the document to 100% to enable "full page tabs" */
+
+/* Style tab links */
+.tablink {
+  background-color: #282c34;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 20%;
+
+}
+
+.tablink:hover {
+  background-color: #282c34;
+
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabname {
+  color: white;
+  display: flex;
+  height: 100%;
+}
+
+#Instruction {
+  background-color: #245c6c;
+}
+
+#Youtube {
+  background-color: #dad7cd;
+}
+
+h1{
+  text-align: left;
+  padding-left: 40px;
+  padding-top: 100px;
+}
+
+#Youtube h1 {
+  color: #282c34;
+}
+
+#Pexels {
+  background-color: #04866c;
+}
+
+#Flickr {
+  background-color: #d3d3d3;
+}
+#Flickr h1 {
+  color: #282c34;
+}
+
+#Spotify {
+  background-color: #1ed760;
+}
+
+.websmash-img {
+  width: 50px;
+  pointer-events: none;
+}
+
+
+.youtube-img {
+  width: 50px;
+  pointer-events: none;
+}
+
+.flickr-img {
+  width: 50px;
+  pointer-events: none;
+}
+
+.pexels-img {
+  width: 50px;
+  pointer-events: none;
+}
+
+.spotify-img {
+  width: 50px;
+  pointer-events: none;
 }

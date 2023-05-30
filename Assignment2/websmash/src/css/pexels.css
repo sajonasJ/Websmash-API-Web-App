@@ -1,0 +1,31 @@
+.pexels{
+    min-height: 100vh;
+    background-color: #04866c;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .video-container video {
+    max-height: 60vmax;
+    width: 130%;
+    height: auto;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+  }
+
+  /* .video-container:hover video {
+    opacity: 0.7;
+  } */
+
+
+  .pexel-container-frame{
+        display: flex;
+  }
+
+  .pexel-container{
+    height: 100vmin;
+  }
