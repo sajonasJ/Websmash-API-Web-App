@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import '../css/nav.css';
-
 import Header from '../component/header';
 import Youtube from '../component/youtube';
 import Pexels from '../component/pexels';
@@ -16,8 +15,6 @@ import Instruction from '../component/instruction';
 
 
 function Nav() {
-  const menu = ["Youtube", "Pexels", "Flickr", "Spotify"];
-
   useEffect(() => {
     document.getElementById("defaultOpen").click();
   }, []);

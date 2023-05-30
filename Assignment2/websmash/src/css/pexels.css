@@ -1,31 +1,40 @@
 .pexels{
-    min-height: 100vh;
+    /* min-height: 100vh; */
     background-color: #04866c;
 }
 
 .video-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    padding:20px;
   }
   
   .video-container video {
     max-height: 60vmax;
-    width: 130%;
+    width: 100%;
     height: auto;
     transition: opacity 0.2s ease;
     cursor: pointer;
   }
 
-  /* .video-container:hover video {
+  .video-container:hover video {
     opacity: 0.7;
-  } */
+  }
 
 
   .pexel-container-frame{
         display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap:30px
   }
 
   .pexel-container{
-    height: 100vmin;
+    height: 100%;
   }

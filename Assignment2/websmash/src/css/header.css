@@ -1,4 +1,4 @@
-.header{
+.header {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -6,23 +6,40 @@
     height: 15vmin;
 }
 
-.a-title{
+.a-title {
     text-decoration: none;
 }
 
-.h2-header{
-    display:flex ;
+.h2-header {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     transition: 0.1s ease-in-out;
     font-family: 'Courgette', cursive;
     text-decoration: none;
 }
-.h2-header:hover{
+
+.h2-header:hover {
     cursor: pointer;
     color: #61DBFB;
 }
 
-.wbs-logo{
+
+.wbs-logo {
     width: 20rem;
+    /* background-image: url('../assets/wbs.png');
+    animation: flash 2s infinite; */
+}
+
+
+@keyframes flash {
+    0% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(120%);
+    }
+    100% {
+        filter: brightness(100%);
+    }
 }
