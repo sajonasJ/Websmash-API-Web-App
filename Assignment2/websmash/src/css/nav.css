@@ -1,5 +1,6 @@
 .nav-container {
   background-color: rgb(247, 247, 247);
+  height: 100%;
 }
 
 .nav-items {
@@ -40,7 +41,7 @@
 
 .tabname {
   color: white;
-  display: flex;
+  /* display: flex; */
   height: 100%;
 }
 
@@ -50,6 +51,7 @@
 
 #Youtube {
   background-color: #dad7cd;
+  min-height: 60rem;
 }
 
 h1 {

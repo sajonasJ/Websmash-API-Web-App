@@ -39,9 +39,9 @@
   height: 100%;
 }
 
-.video-uploader{
-  color:#04866c;
+.video-uploader {
+  color: #04866c;
   font-weight: bold;
   align-self: flex-end;
- padding-top: .5rem;
+  padding-top: .5rem;
 }

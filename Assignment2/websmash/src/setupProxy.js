@@ -30,6 +30,7 @@ module.exports = function (app) {
     '/api/youtube',
     createProxyMiddleware({
       target: 'https://www.googleapis.com/youtube/v3',
+      // Use the HTTP Authorization header like this: Authorization: Bearer oauth2-token
       changeOrigin: true,
       pathRewrite: {
         '^/api/youtube': '',
