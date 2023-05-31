@@ -7,11 +7,13 @@ const SPOTIFY_REDIRECT_URI = 'https://localhost:3000';
 const SPOTIFY_SCOPES = [];
 
 function Spotify() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [searchResults, setSearchResults] = useState([]);
+    // State variables
+    const [searchQuery, setSearchQuery] = useState(''); // Stores the user's search query
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Stores the login status
+    const [searchResults, setSearchResults] = useState([]); // Stores the search results from Spotify API
 
     useEffect(() => {
+        // Check if there is an access token in the URL hash when the component mounts
         const urlParams = new URLSearchParams(window.location.hash.substr(1));
         const accessToken = urlParams.get('access_token');
 
@@ -19,13 +21,14 @@ function Spotify() {
             // Perform any necessary actions with the access token
             console.log('Access token:', accessToken);
             setIsLoggedIn(true);
-
+            // Testing for expiration of token on the console.
             const expiresIn = urlParams.get('expires_in');
             const expirationTime = new Date().getTime() + expiresIn * 1000;
             console.log('Token expires at:', new Date(expirationTime));
         }
     }, []);
 
+    // Function to initiate OAuth sign-in flow for Spotify API
     const oauthSignIn = () => {
         const authUrl = 'https://accounts.spotify.com/authorize' +
             '?response_type=token' +
@@ -36,6 +39,7 @@ function Spotify() {
         window.location.href = authUrl;
     };
 
+    // Function to handle the search button click
     const handleSearch = () => {
         fetch(`/api/spotify/v1/search?type=album,artist,track&q=${encodeURIComponent(searchQuery)}&market=US&limit=10`)
             .then(response => {
@@ -58,9 +62,11 @@ function Spotify() {
             });
     };
 
+    // Function to handle the logout button click
     const logout = () => {
         window.location.href = '/';
     };
+
     return (
         <div className='spotify'>
             <SearchButton
@@ -74,8 +80,10 @@ function Spotify() {
                 <div className='search-results'>
                     <h2>Search Results</h2>
                     <div className='spotify-music-container'>
+                        {/* Render each search result track */}
                         {searchResults.map((track) => (
                             <div className='spotify-frame' key={track.id}>
+                                {/* Render Spotify track iframe */}
                                 <iframe className='spotify-iframe'
                                     src={`https://open.spotify.com/embed/track/${track.id}`}
                                     width='300'

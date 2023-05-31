@@ -8,10 +8,12 @@ const GETSIZES = '/api/flickr/?method=flickr.photos.getSizes&format=json&nojsonc
 const SEARCH = '/api/flickr/?method=flickr.photos.search&content_type=1&api_key=' + FLICKRKEY + '&per_page=5&format=json&nojsoncallback=1&sort=interestingness-desc&text=';
 
 function Flickr() {
-  const [images, setImages] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+    // Define state variables using the useState hook
+    const [images, setImages] = useState([]); // State variable for storing fetched images
+    const [searchQuery, setSearchQuery] = useState(''); // State variable for storing the user's search query
 
   useEffect(() => {
+    // Fetches interesting photos when the component mounts
     fetch(INTRSTNG)
       .then(response => {
         if (!response.ok) {
@@ -23,10 +25,11 @@ function Flickr() {
       .catch(err => console.error('Error happened during fetching!', err));
   }, []);
 
+  // Fetches photo details for each photo in the data received
   const fetchPhoto = (data) => {
     if (!data.photos || !data.photos.photo) {
-        console.error('Invalid data structure:', data);
-        return;
+      console.error('Invalid data structure:', data);
+      return;
     }
 
     let requests = data.photos.photo.map(photo => {
@@ -48,6 +51,7 @@ function Flickr() {
         });
     });
 
+    // Wait for all photo requests to complete and set the images state
     Promise.all(requests)
       .then(results => setImages(results))
       .catch(err => console.error('Error happened during fetching! Promise.all', err));
@@ -55,6 +59,7 @@ function Flickr() {
 
 
   const handleSearch = () => {
+    // Fetches photos based on the search query
     fetch(SEARCH + searchQuery)
       .then(response => {
         if (!response.ok) {
@@ -65,16 +70,18 @@ function Flickr() {
       .then(data => fetchPhoto(data))
       .catch(err => console.error('Error happened during fetching!', err));
   };
-  
+
 
   return (
     <div className='flickr-container'>
+      {/* SearchButton component */}
       <SearchButton
         onClick={handleSearch}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
       <div className='row'>
+        {/* Displaying the images */}
         {images.map(photo => (
           <div className='image-container' key={photo.id}>
             <img src={photo.file} alt={photo.title} />

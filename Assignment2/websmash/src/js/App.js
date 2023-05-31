@@ -4,6 +4,7 @@ import Footer from '../component/footer';
 import WebSmash from '../component/websmash';
 
 function App() {
+  //creates main react component
   return (
     <div className="App">
       <WebSmash/>
