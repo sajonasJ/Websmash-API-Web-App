@@ -2,3 +2,62 @@
     min-height: 100vh;
     background-color: #1ed760;
 }
+
+.spotify-btn-in {
+    background-color: #FF0000;
+    align-self: flex-start;
+    margin-left: 3.3rem;
+    color: #FFFFFF;
+    width: 100px;
+    padding: 5px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.spotify-btn-off {
+    background-color: #FFFFFF;
+    align-self: flex-start;
+    margin-left: 3.3rem;
+    color: #606060;
+    width: 100px;
+    padding: 5px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.spotify-music-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap:5px;
+    margin-top: 3rem;
+}
+
+.spotify-iframe{
+    min-width: 30vmax;
+    min-height: auto;
+    /* padding: 1rem; */
+    background-color:transparent ;
+    border-radius: 15px;
+}
+.spotify-frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:#282C34 ;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.spotify{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-results{
+    display: flex;
+    flex-direction: column;
+}

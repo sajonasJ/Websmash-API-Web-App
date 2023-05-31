@@ -106,7 +106,7 @@ function Youtube() {
                 <div className='yt-video-container'>
                     {searchResults.map((item) => (
                         <div key={item.id.videoId} className='yt-frame'>
-                            <iframe
+                            <iframe className='yt-iframe'
                                 width="560"
                                 height="315"
                                 src={`https://www.youtube.com/embed/${item.id.videoId}`}
