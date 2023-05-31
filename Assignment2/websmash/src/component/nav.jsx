@@ -44,7 +44,7 @@ function Nav() {
       <button className="tablink" onClick={(e) => openPage('Spotify', e.target,'#1ed760')}><img src={spotifyImg} className="spotify-img" alt="spotify-logo" /></button>
       
       <div id="Instruction" className="tabname">
-      <h1>Flickr</h1>
+      <h1>WebSmash</h1>
       <Instruction/>
       </div>
 
