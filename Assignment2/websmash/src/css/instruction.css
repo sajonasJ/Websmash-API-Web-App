@@ -15,6 +15,7 @@
 
  .mySlides {
     display: none;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
  }
 
  .prev,
@@ -74,7 +75,7 @@
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color .6s ease;
+    transition: .6s ease;
  }
 
  .active,

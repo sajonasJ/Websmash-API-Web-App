@@ -7,13 +7,16 @@
     padding: 0 20px 20px;
     border-radius: 5px;
     cursor: pointer;
+    
 }
 
 input {
     width: 250px;
     height: 20px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
-button {
+.search-btn-btn {
     width: 100px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }

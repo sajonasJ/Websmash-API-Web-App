@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 
+const YTKEY='AIzaSyCuuOLa6e7ikhWMj0hC4EU7xNLWESpPi4k';
+
 function Google() {
   const [user, setUser] = useState({});
   const [searchResults, setSearchResults] = useState([]);
@@ -44,7 +46,7 @@ function Google() {
         params: {
           part: 'snippet',
           q: query,
-          key: 'AIzaSyCuuOLa6e7ikhWMj0hC4EU7xNLWESpPi4k',
+          key: YTKEY,
         }
       });
       console.log('YouTube API Response:', response.data); // Log the response

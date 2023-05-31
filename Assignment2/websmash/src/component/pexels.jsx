@@ -74,18 +74,18 @@ function Pexels() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-      <div className='pexel-container-frame'>
+     <div className='pexel-container-frame'>
         {videos.map((video, index) => (
-
           <div key={video.id} className="video-container"
             onClick={() => handleVideoClick(index)}>
-
             <video controls ref={(ref) => (videoRefs.current[index] = ref)}>
               <source src={video.video_files[0].link} type={video.video_files[0].file_type} />
               Your browser does not support the video tag.
             </video>
+            <p className="video-uploader">Uploader: {video.user.name}</p> {/* This line displays the uploader's name */}
           </div>
-        ))}</div>
+        ))}
+      </div>
       
     </div>
   );

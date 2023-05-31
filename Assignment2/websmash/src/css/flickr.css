@@ -1,4 +1,48 @@
-.flickr-container{
+.flickr-container {
     min-height: 100vh;
     background-color: #d3d3d3;
 }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    padding-bottom: 1.5em;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.image-container {
+    flex: wrap;
+    align-items: center;
+    justify-content: center;
+    /* padding: 0 0px; */
+    margin-top: 8px;
+    background-color: white;
+    color: black;
+    overflow: hidden;
+    /* border: solid 2px; */
+    border-radius: 25px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.p-title {
+    font-weight: bold;
+}
+
+/* Create two equal columns that sits next to each other */
+/* .column {
+    flex: 50%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+} */

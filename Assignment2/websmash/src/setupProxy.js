@@ -1,6 +1,6 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.use(
     '/api/videos',
     createProxyMiddleware({
@@ -11,6 +11,28 @@ module.exports = function(app) {
       },
       pathRewrite: {
         '^/api/videos': '/videos',
+      },
+    })
+  );
+
+  app.use(
+    '/api/flickr',
+    createProxyMiddleware({
+      target: 'https://www.flickr.com',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api/flickr': '/services/rest',
+      },
+    })
+  );
+
+  app.use(
+    '/api/youtube',
+    createProxyMiddleware({
+      target: 'https://www.googleapis.com/youtube/v3',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api/youtube': '',
       },
     })
   );
