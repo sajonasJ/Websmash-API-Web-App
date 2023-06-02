@@ -1,6 +1,6 @@
 .spotify-container{
     min-height: 100vh;
-    background-color: #1ed760;
+    background-color: #0ed754;
 }
 
 .spotify-btn-in {
@@ -55,9 +55,34 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .search-results{
     display: flex;
     flex-direction: column;
+}
+
+
+.placeholder-img{
+    width: 100%;
+}
+
+.placeholder-container {
+  margin-top: 2rem;
+  width: 70%;
+  position: relative;
+}
+
+
+@keyframes fallDown {
+    0% { transform: translateY(-800px); opacity: 0; visibility: hidden; }
+    1% { visibility: visible; }
+    100% { transform: translateY(0); opacity: 1; visibility: visible; }
+}
+
+
+.spotify-frame {
+    animation: fallDown 2s ease-out;
+    animation-fill-mode: forwards;
 }

@@ -36,7 +36,7 @@ function Nav() {
 
   return (
     <div className='nav-container'>
-      <Header />
+    
       {/* Button for the Instruction tab */}
       <button className='tablink' onClick={(e) => openPage('Instruction', e.target, '#245c6c')} id='defaultOpen'><img src={wsImg} className='websmash-img' alt='ws-logo' /></button>
       {/* Button for the Youtube tab */}
@@ -46,17 +46,19 @@ function Nav() {
       {/* Button for the Flickr tab */}
       <button className='tablink' onClick={(e) => openPage('Flickr', e.target, '#d3d3d3')}><img src={flickrImg} className='flickr-img' alt='flickr-logo' /></button>
       {/* Button for the Spotify tab */}
-      <button className='tablink' onClick={(e) => openPage('Spotify', e.target, '#1ed760')}><img src={spotifyImg} className='spotify-img' alt='spotify-logo' /></button>
+      <button className='tablink' onClick={(e) => openPage('Spotify', e.target, '#298e4c')}><img src={spotifyImg} className='spotify-img' alt='spotify-logo' /></button>
 
       {/* Instruction tab */}
       <div id='Instruction' className='tabname'>
         <h1>WebSmash</h1>
+        <br/>
         <Instruction />
       </div>
 
       {/* Youtube tab */}
       <div id='Youtube' className='tabname'>
         <h1>Youtube</h1>
+        {/* <br/> */}
         <Youtube />
       </div>
 

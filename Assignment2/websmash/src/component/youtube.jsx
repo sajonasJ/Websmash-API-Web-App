@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchButton from '../component/searchButton';
 import '../css/youtube.css';
+import youtubeHolder from '../assets/youtube.png';
 
 const YTID = '523712342751-tp8bha3p6ss9fhuk3mba331etieql7d7.apps.googleusercontent.com';
 
@@ -9,7 +10,7 @@ function Youtube() {
     const [searchResults, setSearchResults] = useState([]); // Stores the search results from YouTube API
     const [searchQuery, setSearchQuery] = useState(''); // Stores the user's search query
     const [accessToken, setAccessToken] = useState(null); // Stores the access token for YouTube API authentication
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Stores the login status
+    const [ytIssLoggedIn, ytIssetIsLoggedIn] = useState(false); // Stores the login status
 
     useEffect(() => {
         // Check if there is an access token in the URL hash when the component mounts
@@ -18,7 +19,7 @@ function Youtube() {
             const token = new URLSearchParams(hash.substr(1)).get('access_token');
             if (token) {
                 setAccessToken(token);
-                setIsLoggedIn(true);
+                ytIssetIsLoggedIn(true);
             }
         }
     }, []);
@@ -70,7 +71,7 @@ function Youtube() {
                 }
                 console.log('Token revoked');
                 setAccessToken(null);
-                setIsLoggedIn(false);
+                ytIssetIsLoggedIn(false);
                 window.location.hash = '';
             })
             .catch(error => console.error('Error revoking token:', error));
@@ -114,9 +115,9 @@ function Youtube() {
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
-            {!isLoggedIn && <button className='yt-btn-in' onClick={oauthSignIn}>Sign In</button>}
-            {isLoggedIn && <button className='yt-btn-off' onClick={logout}>Log Out</button>}
-            {searchResults.length > 0 && (
+            {!ytIssLoggedIn && <button className='yt-btn-in' onClick={oauthSignIn}>Sign In</button>}
+            {ytIssLoggedIn && <button className='yt-btn-off' onClick={logout}>Log Out</button>}
+            {searchResults.length > 0 ? (
                 <div className='yt-video-container'>
                     {/* Render each search result video */}
                     {searchResults.map((item) => (
@@ -134,6 +135,11 @@ function Youtube() {
                             {/* <div className='yt-title'><h4>{item.snippet.title}</h4></div> */}
                         </div>
                     ))}
+                </div>
+            ) : (
+                // This is the placeholder image that will render if searchResults is empty
+                <div className='placeholder-container'>
+                    <img className='placeholder-img' src={youtubeHolder} alt='placeholder' />
                 </div>
             )}
         </div>

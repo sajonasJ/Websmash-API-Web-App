@@ -3,9 +3,9 @@ import '../css/flickr.css';
 import SearchButton from '../component/searchButton';
 
 const FLICKRKEY = 'dc140afe3fd3a251c2fdf9dcd835be5c';
-const INTRSTNG = '/api/flickr/?method=flickr.interestingness.getList&api_key=' + FLICKRKEY + '&per_page=5&format=json&nojsoncallback=1';
+const INTRSTNG = '/api/flickr/?method=flickr.interestingness.getList&api_key=' + FLICKRKEY + '&per_page=10&format=json&nojsoncallback=1';
 const GETSIZES = '/api/flickr/?method=flickr.photos.getSizes&format=json&nojsoncallback=1&api_key=' + FLICKRKEY + '&photo_id=';
-const SEARCH = '/api/flickr/?method=flickr.photos.search&content_type=1&api_key=' + FLICKRKEY + '&per_page=5&format=json&nojsoncallback=1&sort=interestingness-desc&text=';
+const SEARCH = '/api/flickr/?method=flickr.photos.search&content_type=1&api_key=' + FLICKRKEY + '&per_page=10&format=json&nojsoncallback=1&sort=interestingness-desc&text=';
 
 function Flickr() {
     // Define state variables using the useState hook

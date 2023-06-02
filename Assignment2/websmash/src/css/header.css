@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 15vmin;
+    background-color: #FBF3F2;
 }
 
 .a-title {
@@ -19,27 +20,8 @@
     text-decoration: none;
 }
 
-.h2-header:hover {
-    cursor: pointer;
-    color: #61DBFB;
-}
 
 .wbs-logo {
     width: 20rem;
-    /* background-image: url('../assets/wbs.png');
-    animation: flash 2s infinite; */
 }
 
-@keyframes flash {
-    0% {
-        filter: brightness(100%);
-    }
-
-    50% {
-        filter: brightness(120%);
-    }
-
-    100% {
-        filter: brightness(100%);
-    }
-}

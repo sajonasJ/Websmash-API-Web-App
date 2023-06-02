@@ -1,6 +1,7 @@
 .nav-container {
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(255, 255, 255);
   height: 100%;
+  border: solid 1px;
 }
 
 .nav-items {
@@ -30,7 +31,8 @@
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  height: 80px;
+  /* padding: 14px 16px; */
   font-size: 17px;
   width: 20%;
 }
@@ -78,31 +80,32 @@ h1 {
 }
 
 #Spotify {
-  background-color: #1ed760;
+  background-color: #298e4c;
   min-height: 60rem;
 }
 
 .websmash-img {
-  width: 50px;
+  width: 80px;
   pointer-events: none;
 }
 
 .youtube-img {
-  width: 50px;
+  width: 80px;
   pointer-events: none;
 }
 
 .flickr-img {
-  width: 50px;
+  width: 80px;
   pointer-events: none;
 }
 
 .pexels-img {
-  width: 50px;
+  width: 80px;
   pointer-events: none;
 }
 
 .spotify-img {
-  width: 50px;
+  width: 80px;
   pointer-events: none;
 }
+

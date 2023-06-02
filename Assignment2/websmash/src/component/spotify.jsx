@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SearchButton from '../component/searchButton';
 import '../css/spotify.css';
+import spotifyHolder from '../assets/spotify.png';
 
 const SPOTIFY_CLIENT_ID = 'b385a7550af34cb2bde8a992baf52101';
 const SPOTIFY_REDIRECT_URI = 'https://localhost:3000';
@@ -29,13 +30,11 @@ function Spotify() {
     }, []);
 
     // Function to initiate OAuth sign-in flow for Spotify API
-    const oauthSignIn = () => {
+    const oauthSignInSpotify = () => {
         const authUrl = 'https://accounts.spotify.com/authorize' +
             '?response_type=token' +
-            '&client_id=' + encodeURIComponent(SPOTIFY_CLIENT_ID) +
-            '&scope=' + encodeURIComponent(SPOTIFY_SCOPES.join(' ')) +
-            '&redirect_uri=' + encodeURIComponent(SPOTIFY_REDIRECT_URI);
-
+            '&client_id=' + SPOTIFY_CLIENT_ID +
+            '&redirect_uri=' + SPOTIFY_REDIRECT_URI;
         window.location.href = authUrl;
     };
 
@@ -74,15 +73,15 @@ function Spotify() {
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
-            {!isLoggedIn && <button className='spotify-btn-in' onClick={oauthSignIn}>Login</button>}
+            {!isLoggedIn && <button className='spotify-btn-in' onClick={oauthSignInSpotify}>Login</button>}
             {isLoggedIn && <button className='spotify-btn-off' onClick={logout}>Logged In</button>}
-            {searchResults.length > 0 && (
+            {searchResults.length > 0 ? (
                 <div className='search-results'>
                     <h2>Search Results</h2>
                     <div className='spotify-music-container'>
                         {/* Render each search result track */}
-                        {searchResults.map((track) => (
-                            <div className='spotify-frame' key={track.id}>
+                        {searchResults.map((track, index) => (
+                            <div className='spotify-frame' style={{ animationDelay: `${index * 0.1}s` }} key={track.id}>
                                 {/* Render Spotify track iframe */}
                                 <iframe className='spotify-iframe'
                                     src={`https://open.spotify.com/embed/track/${track.id}`}
@@ -91,11 +90,17 @@ function Spotify() {
                                     frameborder='0'
                                     allowtransparency='true'
                                     allow='encrypted-media'
-                                > </iframe>
+                                ></iframe>
                                 Album: {track.album.name}
                             </div>
                         ))}
+
                     </div>
+                </div>
+            ) : (
+                // This is the placeholder image that will render if searchResults is empty
+                <div className='placeholder-container'>
+                    <img className='placeholder-img' src={spotifyHolder} alt='placeholder' />
                 </div>
             )}
         </div>
