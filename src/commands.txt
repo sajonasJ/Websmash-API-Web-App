@@ -1,0 +1,11 @@
+For Windows Powershell:
+($env:HTTPS = "true") -and (npm start)
+
+
+For cmd.exe:
+set HTTPS=true&&npm start
+
+
+
+For Linux Mac OS:
+HTTPS=true npm start
