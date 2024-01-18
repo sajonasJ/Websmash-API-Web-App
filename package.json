@@ -21,7 +21,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build && ($env:HTTPS = 'true') -and (npm start)",
+    "predeploy": "npm run build && ($env:HTTPS = 'true')",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
