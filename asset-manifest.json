@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/%7BWebsmash-API-Web-App%7D/static/css/main.d8375c54.css",
+    "main.js": "/%7BWebsmash-API-Web-App%7D/static/js/main.dcbace65.js",
+    "static/media/youtube.png": "/%7BWebsmash-API-Web-App%7D/static/media/youtube.62adceb63d83013a9747.png",
+    "static/media/six.png": "/%7BWebsmash-API-Web-App%7D/static/media/six.e540bb3421d7e64443bb.png",
+    "static/media/five.png": "/%7BWebsmash-API-Web-App%7D/static/media/five.2188a50271d02de16a8a.png",
+    "static/media/two.png": "/%7BWebsmash-API-Web-App%7D/static/media/two.9d4ed044501a7bc4d582.png",
+    "static/media/seven.png": "/%7BWebsmash-API-Web-App%7D/static/media/seven.560386716f75b67bd739.png",
+    "static/media/four.png": "/%7BWebsmash-API-Web-App%7D/static/media/four.cdaba764811d9decf74b.png",
+    "static/media/one.png": "/%7BWebsmash-API-Web-App%7D/static/media/one.78869898e194b8649deb.png",
+    "static/media/three.png": "/%7BWebsmash-API-Web-App%7D/static/media/three.63b1f5934c0f6f63a9bc.png",
+    "static/media/spotify.png": "/%7BWebsmash-API-Web-App%7D/static/media/spotify.257184b6341d7c68e6ac.png",
+    "static/media/wbs.png": "/%7BWebsmash-API-Web-App%7D/static/media/wbs.96580bd876edfb839ffb.png",
+    "static/media/spotifyImg.png": "/%7BWebsmash-API-Web-App%7D/static/media/spotifyImg.34e139a7f25a8f19cf47.png",
+    "static/media/wsImg.png": "/%7BWebsmash-API-Web-App%7D/static/media/wsImg.ffe8731cf15f4851cf14.png",
+    "static/media/flickrImg.png": "/%7BWebsmash-API-Web-App%7D/static/media/flickrImg.69ca70cee79941a8d900.png",
+    "static/media/logo.svg": "/%7BWebsmash-API-Web-App%7D/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/%7BWebsmash-API-Web-App%7D/index.html",
+    "main.d8375c54.css.map": "/%7BWebsmash-API-Web-App%7D/static/css/main.d8375c54.css.map",
+    "main.dcbace65.js.map": "/%7BWebsmash-API-Web-App%7D/static/js/main.dcbace65.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8375c54.css",
+    "static/js/main.dcbace65.js"
+  ]
+}
